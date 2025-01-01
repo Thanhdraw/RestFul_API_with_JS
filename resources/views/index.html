@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Phone Store - Header</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="bg-gray-900 text-white">
+            <nav class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="text-xl font-bold">
+                        <a href="#">Phone Store</a>
+                    </div>
+
+                    <!-- Menu Links -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="hover:text-gray-300">Trang chủ</a>
+                        <a href="#" class="hover:text-gray-300">Sản phẩm</a>
+                        <a href="#" class="hover:text-gray-300">Khuyến mãi</a>
+                        <a href="#" class="hover:text-gray-300">Liên hệ</a>
+                    </div>
+
+                    <!-- Search and User Actions -->
+                    <div class="flex items-center space-x-6">
+                        <!-- Search Bar -->
+                        <div class="relative">
+                            <input
+                                type="text"
+                                class="bg-gray-800 text-white rounded-full pl-10 pr-4 py-2 w-60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Tìm kiếm sản phẩm"
+                            />
+                            <svg
+                                class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M11 19a8 8 0 110-16 8 8 0 010 16zm0 0l4 4m-4-4l-4-4"
+                                ></path>
+                            </svg>
+                        </div>
+
+                        <!-- User Icon (Login/Register) -->
+                        <a href="#" class="hover:text-gray-300">
+                            <svg
+                                class="h-6 w-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm0 4v12h14V7H5z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="bg-gradient-to-r from-blue-600 to-purple-600">
+            <div class="container mx-auto px-6 py-16">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 text-white">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                            Điện thoại chính hãng
+                        </h1>
+                        <p class="text-xl mb-8 text-gray-200">
+                            Khám phá bộ sưu tập điện thoại mới nhất với giá tốt
+                            nhất thị trường
+                        </p>
+                        <div class="space-x-4">
+                            <button
+                                class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition duration-300"
+                            >
+                                Mua ngay
+                            </button>
+                            <button
+                                class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition duration-300"
+                            >
+                                Tìm hiểu thêm
+                            </button>
+                        </div>
+                        <div class="mt-8 flex items-center space-x-6">
+                            <div>
+                                <p class="text-3xl font-bold">10K+</p>
+                                <p class="text-gray-200">Khách hàng</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold">24/7</p>
+                                <p class="text-gray-200">Hỗ trợ</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold">100%</p>
+                                <p class="text-gray-200">Chính hãng</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0 relative">
+                        <div class="relative z-10">
+                            <img
+                                src="https://cdn.hoanghamobile.com/i/content/Uploads/2023/12/14/iphone-15-pro-max-natural-titanium-1-hhm.jpg"
+                                alt="Latest Phones"
+                                class="rounded-lg shadow-2xl w-200px h-200px"
+                            />
+                            <div
+                                class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg"
+                            >
+                                <div class="flex items-center">
+                                    <div
+                                        class="bg-green-500 rounded-full h-3 w-3 mr-2"
+                                    ></div>
+                                    <p class="text-gray-800 font-bold">
+                                        Flash Sale đang diễn ra
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
+                        ></div>
+                        <div
+                            class="absolute -bottom-8 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- san pham noi bat -->
+        <!-- Featured Products Section -->
+        <section class="container mx-auto px-6 py-12">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Sản phẩm nổi bật</h2>
+                <div class="flex space-x-2">
+                    <button
+                        class="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        class="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                    <div class="relative">
+                        <img
+                            src="https://cdn.hoanghamobile.com/i/content/Uploads/2023/12/14/iphone-15-pro-max-natural-titanium-1-hhm.jpg"
+                            alt="iPhone 15 Pro Max"
+                            class="w-full h-64 object-cover"
+                        />
+                        <span
+                            class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                            >-15%</span
+                        >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">
+                            iPhone 15 Pro Max
+                        </h3>
+                        <p class="text-gray-600 mb-4">256GB - Titan Tự Nhiên</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-2xl font-bold text-blue-600"
+                                >34.990.000₫</span
+                            >
+                            <span
+                                class="text-sm text-gray-500 line-through ml-2"
+                                >39.990.000₫</span
+                            >
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <span class="ml-1 text-gray-500"
+                                    >4.9 (256)</span
+                                >
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+                        >
+                            Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                    <div class="relative">
+                        <img
+                            src="https://product.hstatic.net/200000409445/product/3_95c54066ba184e7b971052f3ad2b5bc6_master.jpg"
+                            alt="Samsung Galaxy S24 Ultra"
+                            class="w-full h-64 object-cover"
+                        />
+                        <span
+                            class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                            >Mới</span
+                        >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">
+                            Samsung Galaxy S24 Ultra
+                        </h3>
+                        <p class="text-gray-600 mb-4">256GB - Xám Titan</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-2xl font-bold text-blue-600"
+                                >31.990.000₫</span
+                            >
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <span class="ml-1 text-gray-500"
+                                    >4.8 (189)</span
+                                >
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+                        >
+                            Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                    <div class="relative">
+                        <img
+                            src="https://product.hstatic.net/200000409445/product/3_95c54066ba184e7b971052f3ad2b5bc6_master.jpg"
+                            alt="Google Pixel 8 Pro"
+                            class="w-full h-64 object-cover"
+                        />
+                        <span
+                            class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                            >-10%</span
+                        >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">
+                            Google Pixel 8 Pro
+                        </h3>
+                        <p class="text-gray-600 mb-4">256GB - Xanh Ngọc</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-2xl font-bold text-blue-600"
+                                >27.990.000₫</span
+                            >
+                            <span
+                                class="text-sm text-gray-500 line-through ml-2"
+                                >29.990.000₫</span
+                            >
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <span class="ml-1 text-gray-500"
+                                    >4.7 (152)</span
+                                >
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+                        >
+                            Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                    <div class="relative">
+                        <img
+                            src="https://product.hstatic.net/200000409445/product/3_95c54066ba184e7b971052f3ad2b5bc6_master.jpg"
+                            alt="Xiaomi 13T Pro"
+                            class="w-full h-64 object-cover"
+                        />
+                        <span
+                            class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                            >Hot</span
+                        >
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Xiaomi 13T Pro</h3>
+                        <p class="text-gray-600 mb-4">256GB - Xanh Dương</p>
+                        <div class="flex items-baseline mb-4">
+                            <span class="text-2xl font-bold text-blue-600"
+                                >16.990.000₫</span
+                            >
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                    ></path>
+                                </svg>
+                                <span class="ml-1 text-gray-500"
+                                    >4.6 (128)</span
+                                >
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+                        >
+                            Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">
+                        Tại sao chọn Phone Store?
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất
+                        với những ưu đãi độc quyền chỉ có tại Phone Store
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    <!-- Feature 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <div
+                            class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-8 h-8 text-blue-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Giao hàng siêu tốc
+                        </h3>
+                        <p class="text-gray-600">
+                            Giao hàng trong 2h với đơn hàng nội thành. Giao hàng
+                            toàn quốc từ 1-3 ngày.
+                        </p>
+                        <div class="mt-4">
+                            <a
+                                href="#"
+                                class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center"
+                            >
+                                Tìm hiểu thêm
+                                <svg
+                                    class="w-4 h-4 ml-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <div
+                            class="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-8 h-8 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Bảo hành chính hãng
+                        </h3>
+                        <p class="text-gray-600">
+                            Bảo hành chính hãng 12 tháng, 1 đổi 1 trong 30 ngày
+                            nếu lỗi từ nhà sản xuất.
+                        </p>
+                        <div class="mt-4">
+                            <a
+                                href="#"
+                                class="text-green-600 hover:text-green-800 font-medium inline-flex items-center"
+                            >
+                                Xem chính sách
+                                <svg
+                                    class="w-4 h-4 ml-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <div
+                            class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-8 h-8 text-purple-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">
+                            Thanh toán linh hoạt
+                        </h3>
+                        <p class="text-gray-600">
+                            Hỗ trợ nhiều hình thức thanh toán: COD, chuyển
+                            khoản, trả góp 0%.
+                        </p>
+                        <div class="mt-4">
+                            <a
+                                href="#"
+                                class="text-purple-600 hover:text-purple-800 font-medium inline-flex items-center"
+                            >
+                                Xem hướng dẫn
+                                <svg
+                                    class="w-4 h-4 ml-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <div
+                            class="bg-red-100 w-14 h-14 rounded-full flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-8 h-8 text-red-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Hỗ trợ 24/7</h3>
+                        <p class="text-gray-600">
+                            Đội ngũ tư vấn viên chuyên nghiệp, hỗ trợ khách hàng
+                            24/7.
+                        </p>
+                        <div class="mt-4">
+                            <a
+                                href="#"
+                                class="text-red-600 hover:text-red-800 font-medium inline-flex items-center"
+                            >
+                                Liên hệ ngay
+                                <svg
+                                    class="w-4 h-4 ml-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section class="bg-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Sản phẩm mới</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Khám phá những sản phẩm mới nhất và hot nhất tại Phone
+                        Store!
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+                >
+                    <!-- Product 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <img
+                            class="w-full h-56 object-cover rounded-lg mb-4"
+                            src="path/to/product-image.jpg"
+                            alt="Sản phẩm 1"
+                        />
+                        <h3 class="text-xl font-semibold mb-2">Sản phẩm 1</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mô tả ngắn gọn về sản phẩm 1
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600"
+                                >1.500.000 VND</span
+                            >
+                            <a
+                                href="#"
+                                class="text-blue-600 hover:text-blue-800 font-medium"
+                                >Xem chi tiết</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <img
+                            class="w-full h-56 object-cover rounded-lg mb-4"
+                            src="path/to/product-image.jpg"
+                            alt="Sản phẩm 2"
+                        />
+                        <h3 class="text-xl font-semibold mb-2">Sản phẩm 2</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mô tả ngắn gọn về sản phẩm 2
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600"
+                                >2.000.000 VND</span
+                            >
+                            <a
+                                href="#"
+                                class="text-blue-600 hover:text-blue-800 font-medium"
+                                >Xem chi tiết</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <img
+                            class="w-full h-56 object-cover rounded-lg mb-4"
+                            src="path/to/product-image.jpg"
+                            alt="Sản phẩm 3"
+                        />
+                        <h3 class="text-xl font-semibold mb-2">Sản phẩm 3</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mô tả ngắn gọn về sản phẩm 3
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600"
+                                >1.800.000 VND</span
+                            >
+                            <a
+                                href="#"
+                                class="text-blue-600 hover:text-blue-800 font-medium"
+                                >Xem chi tiết</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                        <img
+                            class="w-full h-56 object-cover rounded-lg mb-4"
+                            src="path/to/product-image.jpg"
+                            alt="Sản phẩm 4"
+                        />
+                        <h3 class="text-xl font-semibold mb-2">Sản phẩm 4</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mô tả ngắn gọn về sản phẩm 4
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600"
+                                >2.500.000 VND</span
+                            >
+                            <a
+                                href="#"
+                                class="text-blue-600 hover:text-blue-800 font-medium"
+                                >Xem chi tiết</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter Section -->
+        <section class="bg-gray-800 text-white py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Đăng ký nhận tin mới</h2>
+                <p class="text-lg mb-8">
+                    Cập nhật những sản phẩm mới nhất và các chương trình khuyến
+                    mãi chỉ có tại Phone Store
+                </p>
+
+                <form
+                    action="#"
+                    method="POST"
+                    class="flex justify-center items-center"
+                >
+                    <input
+                        type="email"
+                        placeholder="Nhập email của bạn"
+                        class="p-3 w-80 rounded-l-lg text-gray-700"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-r-lg"
+                    >
+                        Đăng ký
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-8">
+                    Khách hàng nói gì về chúng tôi?
+                </h2>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <!-- Review 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">
+                            "Dịch vụ tuyệt vời, giao hàng nhanh chóng và sản
+                            phẩm chất lượng. Tôi rất hài lòng!"
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <img
+                                src="path/to/avatar1.jpg"
+                                alt="Customer 1"
+                                class="w-12 h-12 rounded-full mr-4"
+                            />
+                            <div>
+                                <p class="font-semibold">Nguyễn Văn A</p>
+                                <p class="text-gray-500">Hà Nội</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">
+                            "Sản phẩm chất lượng, giá cả hợp lý. Tôi chắc chắn
+                            sẽ quay lại mua thêm!"
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <img
+                                src="path/to/avatar2.jpg"
+                                alt="Customer 2"
+                                class="w-12 h-12 rounded-full mr-4"
+                            />
+                            <div>
+                                <p class="font-semibold">Trần Thị B</p>
+                                <p class="text-gray-500">TP.HCM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600 mb-4">
+                            "Dịch vụ hỗ trợ khách hàng rất chuyên nghiệp và
+                            nhiệt tình. Sản phẩm giao đúng hẹn."
+                        </p>
+                        <div class="flex items-center justify-center">
+                            <img
+                                src="path/to/avatar3.jpg"
+                                alt="Customer 3"
+                                class="w-12 h-12 rounded-full mr-4"
+                            />
+                            <div>
+                                <p class="font-semibold">Lê Thị C</p>
+                                <p class="text-gray-500">Đà Nẵng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-6">
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    <!-- About Us -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Về chúng tôi</h3>
+                        <p class="text-gray-400">
+                            Phone Store cung cấp các sản phẩm điện thoại chính
+                            hãng với giá cả hợp lý và dịch vụ tận tâm.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">
+                            Liên kết nhanh
+                        </h3>
+                        <ul>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 hover:text-white"
+                                    >Trang chủ</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 hover:text-white"
+                                    >Sản phẩm</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 hover:text-white"
+                                    >Liên hệ</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 hover:text-white"
+                                    >Chính sách bảo hành</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">
+                            Thông tin liên hệ
+                        </h3>
+                        <p class="text-gray-400">
+                            Địa chỉ: 123 Đường XYZ, TP.HCM
+                        </p>
+                        <p class="text-gray-400">SĐT: (028) 123 456 789</p>
+                        <p class="text-gray-400">
+                            Email: support@phonestore.com
+                        </p>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">
+                            Kết nối với chúng tôi
+                        </h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white"
+                                ><i class="fab fa-facebook-f"></i
+                            ></a>
+                            <a href="#" class="text-gray-400 hover:text-white"
+                                ><i class="fab fa-twitter"></i
+                            ></a>
+                            <a href="#" class="text-gray-400 hover:text-white"
+                                ><i class="fab fa-instagram"></i
+                            ></a>
+                            <a href="#" class="text-gray-400 hover:text-white"
+                                ><i class="fab fa-youtube"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2025 Phone Store. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <hr />
+        <br />
+
+        <!-- products details -->
+        <div class="max-w-7xl mx-auto p-6">
+            <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col lg:flex-row"
+            >
+                <!-- Phần hình ảnh sản phẩm -->
+                <div class="lg:w-1/2">
+                    <img
+                        src="https://cdn.hoanghamobile.com/i/content/Uploads/2023/12/14/iphone-15-pro-max-natural-titanium-1-hhm.jpg"
+                        alt="iPhone 15 Pro Max"
+                        class="w-full h-200px object-cover"
+                    />
+                </div>
+
+                <!-- Phần thông tin sản phẩm -->
+                <div class="lg:w-1/2 p-6 flex flex-col justify-between">
+                    <h2 class="text-2xl lg:text-3xl font-semibold mb-3">
+                        iPhone 15 Pro Max
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-4">
+                        256GB - Titan Tự Nhiên
+                    </p>
+
+                    <!-- Giá sản phẩm và giảm giá -->
+                    <div class="flex items-baseline mb-5">
+                        <span class="text-2xl font-bold text-blue-600"
+                            >34.990.000₫</span
+                        >
+                        <span class="text-sm text-gray-500 line-through ml-3"
+                            >39.990.000₫</span
+                        >
+                        <span
+                            class="bg-red-500 text-white text-xs px-2 py-1 rounded-full ml-3"
+                            >-15%</span
+                        >
+                    </div>
+
+                    <!-- Đánh giá sản phẩm -->
+                    <div class="flex items-center mb-5">
+                        <div class="flex text-yellow-400">
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                ></path>
+                            </svg>
+                            <span class="ml-1 text-gray-500">4.9 (256)</span>
+                        </div>
+                    </div>
+
+                    <!-- Mô tả sản phẩm -->
+                    <div class="text-gray-700 text-sm mb-6">
+                        <h3 class="font-semibold text-lg mb-2">
+                            Mô tả sản phẩm
+                        </h3>
+                        <p>
+                            iPhone 15 Pro Max với thiết kế Titan mới, bộ vi xử
+                            lý A17 Pro và màn hình Super Retina XDR OLED 6.7
+                            inch. Máy sở hữu camera 48MP với ProRAW và khả năng
+                            quay video 4K Dolby Vision. Dung lượng 256GB giúp
+                            bạn thoải mái lưu trữ dữ liệu, hình ảnh, video chất
+                            lượng cao.
+                        </p>
+                    </div>
+
+                    <!-- Nút Thêm vào giỏ -->
+                    <button
+                        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+                    >
+                        Thêm vào giỏ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

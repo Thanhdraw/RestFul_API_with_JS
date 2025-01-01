@@ -93,7 +93,7 @@
                                             <td class="px-6 py-4">{{ $user->created_at }}</td>
                                             <td class="px-6 py-4">
                                                 <div class="flex gap-2">
-                                                    <button
+                                                    <a href="{{ route('admin.user.edit', $user->id) }}"
                                                         class="p-2 bg-green-500 text-white rounded-md hover:bg-green-600">
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                             viewBox="0 0 24 24">
@@ -102,8 +102,10 @@
                                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                                                             </path>
                                                         </svg>
-                                                    </button>
-                                                    <button class="p-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+                                                    </a>
+                                                    <a href="{{ route('admin.user.delete', $user->id) }}"
+                                                        onclick="return confirm('Are you sure you want to delete this user?')"
+                                                        class="p-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                                                         <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                             viewBox="0 0 24 24">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -111,7 +113,7 @@
                                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                                                             </path>
                                                         </svg>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -121,7 +123,8 @@
                                         $name = request('search');
                                     @endphp
                                     <tr>
-                                        <td colspan="8" class="text-center p-4">No users with name " {{ $name }}"
+                                        <td colspan="8" class="text-center p-4">No users with name "
+                                            {{ $name }}"
                                             found.</td>
                                     </tr>
                                 @endif

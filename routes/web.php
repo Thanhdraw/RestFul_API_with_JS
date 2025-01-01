@@ -41,6 +41,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/user/search', [AdminController::class, 'search'])->name('admin.user.search');
         Route::get('/user/add', [AdminController::class, 'addUser'])->name('admin.users.add');
         Route::post('/user/add', [AdminController::class, 'storeUser'])->name('admin.users.store');
+        Route::get('/user/edit/{id}', [AdminController::class, 'editUser'])->name('admin.user.edit');
+        Route::post('/user/edit/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+        Route::get('/user/delete/{id}', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
     });
 
     // thong tin san pham

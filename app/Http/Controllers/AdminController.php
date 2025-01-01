@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+
 
 class AdminController extends Controller
 {
@@ -63,18 +65,61 @@ class AdminController extends Controller
                 'password' => bcrypt($request->input('password')),
             ]);
             if ($user) {
-                return redirect()->route('admin.list')->with('success', 'Them thanh cong');
+                return redirect()->back()->with('success', 'Them thanh cong');
             } else {
                 return redirect()->back()->with('error', 'Them that bai');
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi  ' . $e->getMessage());
         }
-        dd($request->all());
+    }
+    // user edit
+    public function editUser($id)
+    {
+        try {
+            $user = User::findorFail($id);
+            return view('admin.users.edit', compact('user'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi  ' . $e->getMessage());
+        }
     }
 
+    // action update user
+    public function updateUser(Request $request, $id)
+    {
 
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+        $old_user = User::findorFail($id);
+        try {
+            $user = $old_user->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
+            ]);
+            if ($user) {
+                return redirect()->back()->with('success', 'Cap nhat thanh cong');
+            }
+            return redirect()->back()->with('error', 'Cap nhat that bai');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi  ' . $e->getMessage());
+        }
+    }
 
+    // action delete user
+    public function deleteUser($id)
+    {
+        try {
+            $user = User::findorFail($id);
+            $user->delete();
+            return redirect()->back()->with('success', 'Xoa thanh cong');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi  ' . $e->getMessage());
+        }
+    }
 
     // product - CRUD
     public function listProduct()
