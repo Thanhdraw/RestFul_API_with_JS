@@ -121,20 +121,6 @@ class AdminController extends Controller
         }
     }
 
-    // product - CRUD
-    public function listProduct()
-    {
-        try {
-            $message = "";
-            $products = Product::paginate(10);
-            if (count($products) == 0) {
-                $message = "Khong tim thay san pham nao";
-            }
-            return view('admin.products.list', compact('products'))->with('message', $message);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-    }
 
     // category - CRUD
     public function listCategory()

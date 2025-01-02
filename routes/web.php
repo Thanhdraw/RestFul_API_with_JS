@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TrashController;
+use App\Http\Controllers\Customer\CustomerController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +39,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::middleware(['auth', 'CheckCustomer'])->group(function () {
+    Route::get('/shop', [CustomerController::class, 'index'])->name('shop.index');
+});
+
+
 Route::middleware(['auth'])->group(function () {
 
     // thông tin users
@@ -44,13 +55,28 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user/edit/{id}', [AdminController::class, 'editUser'])->name('admin.user.edit');
         Route::post('/user/edit/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
         Route::get('/user/delete/{id}', [AdminController::class, 'deleteUser'])->name('admin.user.delete');
+
+        // trash user
+        Route::get('/user/trash', [TrashController::class, 'trashUser'])->name('admin.user.trash');
+        Route::get('/user/restore/{id}', [TrashController::class, 'restoreUser'])->name('admin.user.restore');
+
+
+        // Products
+        Route::get('/product/add', action: [ProductController::class, 'addProduct'])->name('admin.product.add');
+
     });
+
+
 
     // thong tin san pham
     Route::prefix('admin')->group(function () {
-        Route::get('/product/add', [AdminController::class, 'addProduct'])->name('admin.product.add');
-        Route::get('/product/list', [AdminController::class, 'listProduct'])->name('admin.product.list');
+        Route::get('/product/add', action: [ProductController::class, 'addProduct'])->name('admin.product.add');
+        Route::get('/product/list', [ProductController::class, 'listProduct'])->name('admin.product.list');
         Route::post('/product/search', [AdminController::class, 'search'])->name('admin.product.search');
+        Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('admin.product.store');
+        Route::get('/product/edit/{id}', [ProductController::class, 'editProduct'])->name('admin.product.edit');
+        Route::put('/product/edit/{id}', [ProductController::class, 'updateProduct'])->name('admin.product.update');
+        Route::delete('/product/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.product.destroy');
     });
 
     // thong tin danh muc
