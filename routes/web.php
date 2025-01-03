@@ -6,9 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrashController;
-use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\ShopController\CustomerController;
+use Illuminate\Auth\Events\Authenticated;
 
+use App\Http\Controllers\Auth\RegisterController;
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ShopController\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +29,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'show'])
-    ->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', [DashboardController::class, 'show'])
+//     ->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard');
@@ -39,9 +44,25 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware(['auth', 'CheckCustomer'])->group(function () {
-    Route::get('/shop', [CustomerController::class, 'index'])->name('shop.index');
+
+Route::middleware(['auth', 'checkRole:admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'show'])
+        ->name('dashboard');
 });
+
+Route::middleware(['auth', 'checkRole:customer'])->group(function () {
+    Route::get('/shop', [CustomerController::class, 'index'])
+        ->name('shop.index');
+    Route::get('/shop/products', [CustomerController::class, 'listProducts'])->name('shop.products');
+
+    // cart controller
+    Route::get('/shop/cart', [CartController::class, 'cart'])->name('shop.cart');
+});
+
+
+
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -59,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
         // trash user
         Route::get('/user/trash', [TrashController::class, 'trashUser'])->name('admin.user.trash');
         Route::get('/user/restore/{id}', [TrashController::class, 'restoreUser'])->name('admin.user.restore');
+
 
 
         // Products

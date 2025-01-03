@@ -24,15 +24,15 @@
                 </div>
 
                 <div class="flex gap-4 mb-6">
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        Danh mục 1 <span class="text-gray-500">(10)</span>
-                    </a>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        Danh mục 2 <span class="text-gray-500">(5)</span>
-                    </a>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        Danh mục 3 <span class="text-gray-500">(20)</span>
-                    </a>
+                    @foreach ($categories as $category) 
+                        <a href="#" class="text-blue-600 hover:text-blue-800">
+                            Danh mục {{ $category->name }} <span
+                                class="text-gray-500">({{ $category->products()->count() }})</span>
+
+                        </a>
+                    @endforeach
+
+
                 </div>
 
                 <div class="flex gap-2 mb-6">

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>ShopStore - Đăng nhập & Đăng ký</title>
+    </head>
+    <body class="flex items-center justify-center min-h-screen p-4 bg-gray-100">
+        <div class="grid w-full max-w-4xl gap-8 md:grid-cols-2">
+            <!-- Form Đăng nhập -->
+            <div class="p-8 bg-white rounded-lg shadow-md">
+                <h2 class="mb-6 text-2xl font-bold text-center text-gray-800">
+                    Đăng nhập
+                </h2>
+                <form class="space-y-4">
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="login-email"
+                            >Email</label
+                        >
+                        <input
+                            type="email"
+                            id="login-email"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Email của bạn"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="login-password"
+                            >Mật khẩu</label
+                        >
+                        <input
+                            type="password"
+                            id="login-password"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Mật khẩu"
+                            required
+                        />
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2" />
+                            <span class="text-sm text-gray-600"
+                                >Ghi nhớ đăng nhập</span
+                            >
+                        </label>
+                        <a
+                            href="#"
+                            class="text-sm text-blue-500 hover:text-blue-600"
+                            >Quên mật khẩu?</a
+                        >
+                    </div>
+                    <button
+                        type="submit"
+                        class="w-full py-2 text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600"
+                    >
+                        Đăng nhập
+                    </button>
+                </form>
+            </div>
+
+            <!-- Form Đăng ký -->
+            <div class="p-8 bg-white rounded-lg shadow-md">
+                <h2 class="mb-6 text-2xl font-bold text-center text-gray-800">
+                    Đăng ký
+                </h2>
+                <form class="space-y-4">
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="register-username"
+                            >Tên đăng nhập</label
+                        >
+                        <input
+                            type="text"
+                            id="register-username"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Tên đăng nhập"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="register-email"
+                            >Email</label
+                        >
+                        <input
+                            type="email"
+                            id="register-email"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Email của bạn"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="register-password"
+                            >Mật khẩu</label
+                        >
+                        <input
+                            type="password"
+                            id="register-password"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Mật khẩu"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="register-phone"
+                            >Số điện thoại</label
+                        >
+                        <input
+                            type="tel"
+                            id="register-phone"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Số điện thoại"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label
+                            class="block mb-2 text-gray-700"
+                            for="register-address"
+                            >Địa chỉ</label
+                        >
+                        <textarea
+                            id="register-address"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+                            placeholder="Địa chỉ của bạn"
+                            rows="2"
+                            required
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="w-full py-2 text-white transition-colors bg-green-500 rounded-lg hover:bg-green-600"
+                    >
+                        Đăng ký
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

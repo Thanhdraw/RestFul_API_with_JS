@@ -13,12 +13,10 @@ class Role extends Model
     protected $fillable = ['name'];
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(User::class);
     }
 
+
     // Quan hệ nhiều-nhiều với Customer
-    public function customers()
-    {
-        return $this->belongsToMany(Customer::class, 'role_id', 'customer_id');
-    }
+
 }

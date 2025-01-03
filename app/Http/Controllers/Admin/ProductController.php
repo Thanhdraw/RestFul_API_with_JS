@@ -17,10 +17,13 @@ class ProductController extends Controller
         try {
             $message = "";
             $products = Product::paginate(10);
+            $categories = Category::all();
             if (count($products) == 0) {
                 $message = "Khong tim thay san pham nao";
             }
-            return view('admin.products.list', compact('products'))->with('message', $message);
+            return view('admin.products.list', compact('products'))
+                ->with('categories', $categories)
+                ->with('message', $message);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
