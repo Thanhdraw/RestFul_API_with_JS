@@ -61,17 +61,17 @@
                         <!-- Color & Storage Selection -->
                         <div class="space-y-3">
                             <!-- <div>
-                                                                                                                                                            <label class="text-sm font-medium text-gray-700">Màu sắc</label>
-                                                                                                                                                            <div class="grid grid-cols-4 gap-2 mt-1">
-                                                                                                                                                                @foreach(['purple' => 'Tím', 'yellow' => 'Vàng', 'black' => 'Đen', 'white' => 'Trắng'] as $color => $name)
-                                                                                                                                                                    <button
-                                                                                                                                                                        class="p-2 border rounded hover:border-blue-400 focus:ring-1 focus:ring-blue-400">
-                                                                                                                                                                        <div class="w-6 h-6 mx-auto rounded-full bg-{{$color}}-500"></div>
-                                                                                                                                                                        <span class="mt-1 text-xs text-gray-600">{{$name}}</span>
-                                                                                                                                                                    </button>
-                                                                                                                                                                @endforeach
-                                                                                                                                                            </div>
-                                                                                                                                                        </div> -->
+                                                                                                                                                                        <label class="text-sm font-medium text-gray-700">Màu sắc</label>
+                                                                                                                                                                        <div class="grid grid-cols-4 gap-2 mt-1">
+                                                                                                                                                                            @foreach(['purple' => 'Tím', 'yellow' => 'Vàng', 'black' => 'Đen', 'white' => 'Trắng'] as $color => $name)
+                                                                                                                                                                                <button
+                                                                                                                                                                                    class="p-2 border rounded hover:border-blue-400 focus:ring-1 focus:ring-blue-400">
+                                                                                                                                                                                    <div class="w-6 h-6 mx-auto rounded-full bg-{{$color}}-500"></div>
+                                                                                                                                                                                    <span class="mt-1 text-xs text-gray-600">{{$name}}</span>
+                                                                                                                                                                                </button>
+                                                                                                                                                                            @endforeach
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div> -->
 
                             <div>
                                 <label class="text-sm font-medium text-gray-700">Dung lượng</label>

@@ -57,9 +57,12 @@ Route::middleware(['auth', 'checkRole:customer'])->group(function () {
 
     Route::get('/shop/products', action: [ShopControllerProductController::class, 'show'])->name('shop.products');
     Route::get('/shop/products/{id}', action: [ShopControllerProductController::class, 'detailProduct'])->name('shop.detail');
-    
-    Route::get('/shop/products/category/{id}', action: [ShopControllerProductController::class, 'getCatergory'])->name('shop.category');
-    
+
+    Route::get('/shop/products/category/{id}', action: [ShopControllerProductController::class, 'show'])->name('shop.category');
+
+
+    // search
+    Route::get('/shop/search/{search?}', [ShopControllerProductController::class, 'search'])->name('shop.search');
     // cart controller
     Route::get('/shop/cart', [CartController::class, 'cart'])->name('shop.cart');
 });
