@@ -20,7 +20,6 @@ class ProductSeeder extends Seeder
             for ($i = 1; $i <= 5; $i++) {
                 $price = number_format(rand(100000, 10000000) / 10, 2, '.', ''); // chia cho 100 để có 2 chữ số thập phân
 
-                // Generate a unique slug by appending the loop index or a random number
                 $slug = 'san-pham-' . $category->id . '-' . $i . '-' . time();
 
                 Product::create([
