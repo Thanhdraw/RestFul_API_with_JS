@@ -13,8 +13,5 @@ class CustomerController extends Controller
         return view('customers.index');
     }
 
-    public function listProducts()
-    {
-        return view('customers.products.index');
-    }
+
 }

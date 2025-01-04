@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ShopController\CartController;
+use App\Http\Controllers\ShopController\ProductController as ShopControllerProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +54,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 Route::middleware(['auth', 'checkRole:customer'])->group(function () {
     Route::get('/shop', [CustomerController::class, 'index'])
         ->name('shop.index');
-    Route::get('/shop/products', [CustomerController::class, 'listProducts'])->name('shop.products');
 
+    Route::get('/shop/products', action: [ShopControllerProductController::class, 'show'])->name('shop.products');
+    Route::get('/shop/products/{id}', action: [ShopControllerProductController::class, 'detailProduct'])->name('shop.detail');
     // cart controller
     Route::get('/shop/cart', [CartController::class, 'cart'])->name('shop.cart');
 });
@@ -85,6 +87,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Products
         Route::get('/product/add', action: [ProductController::class, 'addProduct'])->name('admin.product.add');
+
 
     });
 
