@@ -2,6 +2,7 @@
 
 
 <header class="relative z-50 text-white bg-gray-900 shadow-lg">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <nav class="container px-6 py-4 mx-auto">
         <div class="flex items-center justify-between">
             <!-- Logo -->
@@ -46,7 +47,10 @@
                             </path>
                         </svg>
                         <span
-                            class="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-blue-500 rounded-full -top-2 -right-2">0</span>
+                            class="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-blue-500 rounded-full -top-2 -right-2">
+                            {{ \Cart::getTotalQuantity() }}
+                        </span>
+
                     </a>
                 </div>
 
@@ -86,5 +90,6 @@
     </nav>
 </header>
 <script src="https://cdn.tailwindcss.com"></script>
+
 
 @yield('cart')

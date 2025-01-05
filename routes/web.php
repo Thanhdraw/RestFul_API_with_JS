@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TrashController;
 use App\Http\Controllers\ShopController\CustomerController;
+use App\Http\Controllers\ShopController\CartController as ShopControllerCartController;
+use App\Http\Controllers\ShopController\CheckoutController as ShopControllerCheckoutController;
 use Illuminate\Auth\Events\Authenticated;
 
 use App\Http\Controllers\Auth\RegisterController;
@@ -49,6 +51,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'show'])
         ->name('dashboard');
+
+    Route::get('/transation', [DashboardController::class, 'transation'])
+        ->name('transation');
+
 });
 
 Route::middleware(['auth', 'checkRole:customer'])->group(function () {
@@ -60,11 +66,23 @@ Route::middleware(['auth', 'checkRole:customer'])->group(function () {
 
     Route::get('/shop/products/category/{id}', action: [ShopControllerProductController::class, 'show'])->name('shop.category');
 
+    // Cart - Action
+    Route::post('/shop/add-to-cart/{id}', [ShopControllerCartController::class, 'addCart'])->name('shop.addcart');
+
+    Route::post('/shop/remove-from-cart/{id}', [ShopControllerCartController::class, 'removeCart'])->name('shop.removecart');
+
+    Route::post('/shop/update-cart', [ShopControllerCartController::class, 'updateCart'])->name('shop.updatecart');
+
+    Route::get('/shop/clear-cart', [ShopControllerCartController::class, 'clearCart'])->name('cart.clear');
+
+    Route::post('/shop/checkout', [ShopControllerCheckoutController::class, 'checkout'])->name('cart.checkout');
+
+
 
     // search
     Route::get('/shop/search/{search?}', [ShopControllerProductController::class, 'search'])->name('shop.search');
     // cart controller
-    Route::get('/shop/cart', [CartController::class, 'cart'])->name('shop.cart');
+    Route::get('/shop/cart', [ShopControllerCartController::class, 'cart'])->name('shop.cart');
 });
 
 
@@ -93,6 +111,10 @@ Route::middleware(['auth'])->group(function () {
 
         // Products
         Route::get('/product/add', action: [ProductController::class, 'addProduct'])->name('admin.product.add');
+
+
+
+
 
 
     });

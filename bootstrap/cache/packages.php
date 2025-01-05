@@ -1,4 +1,15 @@
 <?php return array (
+  'darryldecode/cart' => 
+  array (
+    'aliases' => 
+    array (
+      'Cart' => 'Darryldecode\\Cart\\Facades\\CartFacade',
+    ),
+    'providers' => 
+    array (
+      0 => 'Darryldecode\\Cart\\CartServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 

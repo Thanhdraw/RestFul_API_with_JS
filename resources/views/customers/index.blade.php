@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 
 <body>

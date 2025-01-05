@@ -130,7 +130,20 @@
                         </span>
                     </h2>
 
+                    @if(session('success'))
+                        <div class="relative px-4 py-3 text-green-700 bg-green-100 border border-green-400 rounded"
+                            role="alert">
+                            <strong class="font-bold">Thành công!</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @endif
 
+                    @if(session('error'))
+                        <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded" role="alert">
+                            <strong class="font-bold">Lỗi!</strong>
+                            <span class="block sm:inline">{{ session('error') }}</span>
+                        </div>
+                    @endif
                     <div class="mt-1 h-0.5 w-0 group-hover:w-full bg-blue-600 transition-all duration-300"></div>
                 </div>
                 <!-- Products grid -->
@@ -153,21 +166,7 @@
                                         -15%
                                     </div>
                                 </div>
-                                @if(session('success'))
-                                    <div class="relative px-4 py-3 text-green-700 bg-green-100 border border-green-400 rounded"
-                                        role="alert">
-                                        <strong class="font-bold">Thành công!</strong>
-                                        <span class="block sm:inline">{{ session('success') }}</span>
-                                    </div>
-                                @endif
 
-                                @if(session('error'))
-                                    <div class="relative px-4 py-3 text-red-700 bg-red-100 border border-red-400 rounded"
-                                        role="alert">
-                                        <strong class="font-bold">Lỗi!</strong>
-                                        <span class="block sm:inline">{{ session('error') }}</span>
-                                    </div>
-                                @endif
 
                                 <!-- Product info -->
                                 <div class="flex flex-col flex-1 p-4">
@@ -188,15 +187,21 @@
                                     </div>
 
                                     <!-- Price and button - now in a separate div at the bottom -->
+
+
                                     <div class="mt-auto">
                                         <span class="block mb-3 text-lg font-bold text-blue-600">
                                             {{ number_format($product->price) . ' ' . '₫' }}
                                         </span>
-                                        <button
-                                            class="w-full py-2 text-sm font-medium text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                        <button data-product-id="{{ $product->id }}" type="button"
+                                            class="w-full py-2 text-sm font-medium text-white transition duration-200 bg-blue-600 rounded-lg add-to-cart-btn hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                                             Thêm vào giỏ hàng
                                         </button>
+
                                     </div>
+
+
+
                                 </div>
                             </div>
                         @endforeach
@@ -243,4 +248,41 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product-id');
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch(`http://127.0.0.1:8000/shop/add-to-cart/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+                    },
+                    body: JSON.stringify({
+                        product_id: productId,
+                        quantity: 1
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Product added to cart successfully!');
+                        } else {
+                            alert('Failed to add product to cart.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            })
+        })
+    });
+</script>
 @endsection
