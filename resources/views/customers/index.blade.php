@@ -19,6 +19,7 @@
 
     <!-- Hero Section -->
     @include('layouts.custommer.herosection')
+
     <!-- san pham noi bat -->
     <!-- Featured Products Section -->
 

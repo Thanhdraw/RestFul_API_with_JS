@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ShopController\CartController;
 use App\Http\Controllers\ShopController\ProductController as ShopControllerProductController;
+use App\Http\Controllers\ShopController\Profile\ProfileController as ProfileProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,9 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
 });
 
+
+
+
 Route::middleware(['auth', 'checkRole:customer'])->group(function () {
     Route::get('/shop', [CustomerController::class, 'index'])
         ->name('shop.index');
@@ -77,7 +81,10 @@ Route::middleware(['auth', 'checkRole:customer'])->group(function () {
 
     Route::post('/shop/checkout', [ShopControllerCheckoutController::class, 'checkout'])->name('cart.checkout');
 
-
+    // profile
+    Route::get('/shop/profile', [ProfileProfileController::class, 'index'])->name('profile');
+    Route::post('/shop/profile', [ProfileProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/shop/profile/delete', [ProfileProfileController::class, 'destroy'])->name('profile.delete')->middleware('auth');
 
     // search
     Route::get('/shop/search/{search?}', [ShopControllerProductController::class, 'search'])->name('shop.search');
