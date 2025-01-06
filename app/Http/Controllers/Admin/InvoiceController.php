@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Invoice;
 use Illuminate\Support\Str;
+use Psy\Formatter\DocblockFormatter;
 
+use PDF;
 class InvoiceController extends Controller
 {
     //
@@ -23,11 +25,24 @@ class InvoiceController extends Controller
 
         // Tạo hóa đơn mới
         $invoice = new Invoice();
+
         $invoice->order_id = $order->id;
+        $invoice->status = 'Pending';
         $invoice->invoice_number = 'INV-' . Str::random(8); // Mã hóa đơn ngẫu nhiên
-        $invoice->total_amount = $order->total_amount; // Lấy tổng số tiền từ đơn hàng
+        $invoice->total_amount = $order->total; // Lấy tổng số tiền từ đơn hàng
         $invoice->save();
 
-        return view('invoices.show', compact('invoice', 'order'));
+        return view('admin.invoices.show', compact('invoice', 'order'));
+    }
+    public function generatePDF($invoiceId)
+    {
+        $invoice = Invoice::with('order.items.product')->findOrFail($invoiceId);
+        $order = $invoice->order;
+
+        // Tạo view PDF
+        $pdf = PDF::loadView('admin.invoices.pdf', compact('invoice', 'order'));
+
+        // Xuất PDF trực tiếp hoặc tải về
+        return $pdf->download('invoice_' . $invoice->invoice_number . '.pdf');
     }
 }

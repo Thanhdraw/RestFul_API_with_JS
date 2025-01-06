@@ -10,7 +10,7 @@ use App\Http\Controllers\ShopController\CustomerController;
 use App\Http\Controllers\ShopController\CartController as ShopControllerCartController;
 use App\Http\Controllers\ShopController\CheckoutController as ShopControllerCheckoutController;
 use Illuminate\Auth\Events\Authenticated;
-
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Auth\RegisterController;
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -55,6 +55,8 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
     Route::get('/transation', [DashboardController::class, 'transation'])
         ->name('transation');
+    Route::get('/order/{orderId}/invoice', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
+    Route::get('/invoice/{invoice}/pdf', [InvoiceController::class, 'generatePDF'])->name('invoice.pdf');
 
 });
 
