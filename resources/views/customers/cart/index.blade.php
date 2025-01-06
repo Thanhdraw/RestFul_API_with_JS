@@ -26,7 +26,7 @@
                                 <div class="flex flex-col items-center gap-4 mt-4 md:flex-row md:mt-0">
                                     <div class="flex items-center border rounded-lg">
 
-                                        <input type="number" id="quantity-{{$item->id}}" value="{{$item->quantity}}"
+                                        <input type="number" id="quantity-{{$item->id}}" value="{{$item['quantity']}}"
                                             class="w-20 px-4 py-2 text-center border-x" min="1">
 
 
@@ -135,107 +135,111 @@
 </div>
 
 <script>
-    document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault(); // Dòng này chặn form
-
-    });
-
-    function updateQuantity(productId, source) {
-        const quantityInput = document.getElementById('quantity-' + productId);
-        const quantity = quantityInput.value;
-
-        // You can implement logic to handle the update or validation of the quantity
-        console.log(`Product ID: ${productId}, Quantity: ${quantity}`);
-
-        // Optional: send AJAX request to update the cart in real-time
-        // You can collect all updated quantities later for the "Update Cart" button
-    }
-
     document.addEventListener("DOMContentLoaded", function () {
-        // Remove item from cart
         const removeItemButtons = document.querySelectorAll('.remove-item');
+        const updateCartButton = document.getElementById('update-cart-btn');
+        let isUpdating = false;
 
+        function updateQuantity(productId) {
+            const quantityInput = document.getElementById('quantity-' + productId);
+            const quantity = parseInt(quantityInput.value);
+            if (quantity < 1) {
+                quantityInput.value = 1;
+            }
+        }
+
+        // Quantity change handler
+        const quantityInputs = document.querySelectorAll('input[type="number"]');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function () {
+                const productId = this.getAttribute('id').replace('quantity-', '');
+                updateQuantity(productId);
+            });
+        });
+
+        // Remove item handler
         removeItemButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-product-id');
-                if (confirm('Bạn có muốn xoá không ?')) {
-                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            button.addEventListener('click', async function () {
+                if (!confirm('Bạn có muốn xoá không ?')) return;
 
-                    fetch(`http://127.0.0.1:8000/shop/remove-from-cart/${productId}`, {
+                const productId = this.getAttribute('data-product-id');
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/shop/remove-from-cart/${productId}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': csrfToken
-                        },
-                        body: JSON.stringify({
-                            product_id: productId
-                        })
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert('✅ Product removed from cart successfully!');
-                                location.reload();
-                            } else {
-                                alert('❌ Failed to remove product from cart.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                        }
+                    });
+
+                    const data = await response.json();
+                    if (data.success) {
+                        alert('✅ Xóa sản phẩm thành công!');
+                        location.reload();
+                    } else {
+                        alert('❌ Xóa sản phẩm thất bại');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('❌ Đã xảy ra lỗi');
                 }
             });
         });
 
-        // Update cart quantities when the input changes
-        const quantityInputs = document.querySelectorAll('input[type="number"]');
+        // Update cart handler
+        updateCartButton.addEventListener('click', async function () {
+            if (isUpdating) return;
+            isUpdating = true;
+            updateCartButton.disabled = true;
 
-        quantityInputs.forEach(input => {
-            input.addEventListener('change', function () {
-                const productId = this.getAttribute('id').replace('quantity-', '');
-                updateQuantity(productId, 'input');
-            });
-        });
+            try {
+                const updatedQuantities = [];
+                const inputs = document.querySelectorAll('input[type="number"]');
 
-        // Handle the "Update Cart" button click
-        const updateCartButton = document.getElementById('update-cart-btn');
-        updateCartButton.addEventListener('click', function () {
-            const updatedQuantities = [];
-            const inputs = document.querySelectorAll('input[type="number"]');
-
-            inputs.forEach(input => {
-                const productId = input.getAttribute('id').replace('quantity-', '');
-                const quantity = input.value;
-
-                updatedQuantities.push({ productId, quantity });
-            });
-
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-            fetch('http://127.0.0.1:8000/shop/update-cart', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-                body: JSON.stringify({
-                    updatedQuantities,
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('✅ Giỏ hàng đã được cập nhật!');
-                        location.reload(); // Reload the page to reflect updated quantities
-                    } else {
-                        alert('❌ Cập nhật giỏ hàng thất bại.');
+                inputs.forEach(input => {
+                    const productId = input.getAttribute('id').replace('quantity-', '');
+                    const quantity = parseInt(input.value);
+                    if (quantity > 0) {
+                        updatedQuantities.push({ productId, quantity });
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
                 });
+
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                const requestBody = {
+                    updatedQuantities
+                }
+                const response = await fetch('http://127.0.0.1:8000/shop/update-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('✅ Cập nhật giỏ hàng thành công!');
+                    location.reload();
+                } else {
+                    alert('❌ Cập nhật giỏ hàng thất bại');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Đã xảy ra lỗi');
+            } finally {
+                isUpdating = false;
+                updateCartButton.disabled = false;
+            }
         });
+
+        // Prevent form submissions
+
     });
+
 </script>
 
 @endsection

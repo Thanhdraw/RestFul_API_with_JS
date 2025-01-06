@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ShopController;
 
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 
-
+use Illuminate\Support\Facades\Log;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -31,6 +31,7 @@ class CartController extends Controller
             $cartItem = Cart::getContent()->where('id', $id)->first();
 
             if ($cartItem) {
+                // Cập nhật số lượng sản phẩm trong giỏ hàng thay vì cộng thêm
                 Cart::update(
                     $cartItem->id,
                     [
@@ -40,6 +41,7 @@ class CartController extends Controller
                         ]
                     ]
                 );
+
                 $message = "Product has been updated!";
                 return response()->json([
                     'success' => true,
@@ -55,8 +57,8 @@ class CartController extends Controller
                     'attributes' => ['image' => $product->image],
                 ]);
             }
-            return response()->json(['success' => true, 'message' => 'Product added to cart!']);
 
+            return response()->json(['success' => true, 'message' => 'Product added to cart!']);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
@@ -64,6 +66,7 @@ class CartController extends Controller
             ], 500);
         }
     }
+
 
 
 
@@ -110,23 +113,30 @@ class CartController extends Controller
     }
 
 
+    // Cập nhật giỏ hàng
     public function updateCart(Request $request)
     {
-        try {
-            $updatedQuantities = $request->input('updatedQuantities');
-            foreach ($updatedQuantities as $updatedQuantity) {
-                $productId = $updatedQuantity['productId'];
-                $quantity = $updatedQuantity['quantity'];
+        foreach ($request->updatedQuantities as $updatedItem) {
+            $productId = $updatedItem['productId'];
+            $quantity = (int) $updatedItem['quantity'];
 
-                Cart::update($productId, [
-                    'quantity' => $quantity,
-                ]);
-            }
-            return response()->json(['success' => true, 'message' => 'Cart updated successfully!']);
-        } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => 'Failed to update cart: ' . $e->getMessage()], 500);
+            Cart::update($productId, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $quantity
+                ),
+            ));
         }
+
+        return response()->json([
+            'success' => true,
+            'cartContents' => Cart::getContent()
+        ]);
     }
+
+
+
+
 
 
 

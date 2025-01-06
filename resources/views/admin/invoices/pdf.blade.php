@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice: {{ $invoice->invoice_number }}</title>
+    <title>Invoice: </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,11 +50,12 @@
 
 <body>
     <div class="invoice-container">
-        <h1>Invoice: {{ $invoice->invoice_number }}</h1>
-        <p><strong>Order ID:</strong> {{ $invoice->order_id }}</p>
-        <p><strong>Total Amount:</strong> {{ $invoice->total_amount }} VND</p>
-        <p><strong>Status:</strong> {{ ucfirst($invoice->status) }}</p>
-
+        <h1>Invoice: {{ $getName->id }}</h1>
+        <p>Customer: {{ $info_user['name'] ?? 'Không có người dùng' }}</p>
+        <p>Phone: {{ $info_user['phone'] ?? 'no phone' }}</p>
+        <p>Email: {{ $info_user['email'] ?? 'no email' }}</p>
+        <p>Address: {{ $info_user['address'] ?? 'No address' }}</p>
+        <p>Created At: {{ $getName->created_at ?? 'No address' }}</p>
         <h3>Order Details</h3>
         <table class="table">
             <thead>
@@ -67,9 +68,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($order->items as $item)
+                @foreach ($details as $item)
                     <tr>
-                        <td>{{$item->user->name}}</td>
+                        <td>{{ $item->order->user->name ?? 'Không có người dùng' }}</td>
                         <td>{{ $item->product_name ?? 'Không có sản phẩm' }}</td>
                         <td>{{ $item->quantity }}</td>
                         <td>{{ number_format($item->price) }} VND</td>
@@ -80,7 +81,7 @@
         </table>
 
         <div class="total">
-            <p><strong>Total Amount:</strong> {{ number_format($invoice->total_amount) }} VND</p>
+            <p><strong>Total Amount:</strong> {{ number_format($getName->total) }} VND</p>
         </div>
 
         <p>Thank you for your purchase!</p>

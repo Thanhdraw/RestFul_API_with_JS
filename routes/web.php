@@ -59,7 +59,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
     Route::get('/transation/details/{id}', [CheckoutController::class, 'checkoutDetails'])->name('transation.details');
     Route::get('/order/{orderId}/invoice', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
-    Route::get('/invoice/{invoice}/pdf', [InvoiceController::class, 'generatePDF'])->name('invoice.pdf');
+    Route::get('/invoice/{invoice}/pdf', [CheckoutController::class, 'generatePDF'])->name('invoice.pdf');
 
 });
 
