@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CheckoutController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,8 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
     Route::get('/transation', [DashboardController::class, 'transation'])
         ->name('transation');
+
+    Route::get('/transation/details/{id}', [CheckoutController::class, 'checkoutDetails'])->name('transation.details');
     Route::get('/order/{orderId}/invoice', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
     Route::get('/invoice/{invoice}/pdf', [InvoiceController::class, 'generatePDF'])->name('invoice.pdf');
 

@@ -59,6 +59,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>User Name</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -68,6 +69,7 @@
             <tbody>
                 @foreach ($order->items as $item)
                     <tr>
+                        <td>{{$item->user->name}}</td>
                         <td>{{ $item->product_name ?? 'Không có sản phẩm' }}</td>
                         <td>{{ $item->quantity }}</td>
                         <td>{{ number_format($item->price) }} VND</td>

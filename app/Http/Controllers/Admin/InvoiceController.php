@@ -17,7 +17,6 @@ class InvoiceController extends Controller
     {
         // Lấy đơn hàng
         $order = Order::with('items.product')->findOrFail($orderId); // Kèm theo thông tin sản phẩm
-
         // Kiểm tra xem hóa đơn đã được tạo chưa
         if ($order->invoice) {
             return redirect()->route('order.show', $orderId)->with('error', 'Invoice has already been generated.');
@@ -26,10 +25,12 @@ class InvoiceController extends Controller
         // Tạo hóa đơn mới
         $invoice = new Invoice();
 
+
         $invoice->order_id = $order->id;
+        // $invoice->user_id = $order->user_id;
+
         $invoice->status = 'Pending';
-        $invoice->invoice_number = 'INV-' . Str::random(8); // Mã hóa đơn ngẫu nhiên
-        $invoice->total_amount = $order->total; // Lấy tổng số tiền từ đơn hàng
+        $invoice->invoice_number = 'INV-' . Str::random(8);
         $invoice->save();
 
         return view('admin.invoices.show', compact('invoice', 'order'));
