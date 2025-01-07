@@ -1,32 +1,51 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 ## Descripe My Project Laravel - ShopStore
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ hàng, phân quyền người dùng (admin, khách hàng).
 
 ## Technologies used in ShopStore
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   [Laravel](https://laravel.com/)
+-   [tailwindcss](https://tailwindcss.com/)
+-   [laravel-breeze](https://github.com/laravel/breeze)
+-   [laravel-dompdf](https://github.com/barryvdh/laravel-dompdf)
+-   [darryldecode/cart](https://github.com/darryldecode/cart)
 
 ## Features
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## FE:
+
+-   Giao diện website
+    !["Giao diện website"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/baner.png)
+-   Giao diện sản phẩm
+    !["Sản phẩm"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/products.png)
+-   Giỏ hàng - CRUD
+    !["Giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/cart.png)
+-   Thông tin tài khoản - CRUD
+    !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/info.png)
+
+## BE:
+
+-   Đăng kí, đăng nhập - Auth
+    !["Đăng kí, đăng nhập"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/middleware.png)
+
+-   Dasboard
+    !["Dasboard"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/admindashboard.png)
+    Quản lý sản phẩm - CRUD
+    ![" Danh mục sản phẩm"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/products.png)
+
+-   Quản lý tài khoản
+    !["Quản lý tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/users.png)
+
+-   Update tài khoản
+    ["Update tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/update_user.png)
+
+-   Quản lý giỏ hàng
+    !["Quản lý giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/invoice.png)
+
+-   Chi tiết giỏ hàng
+    !["chi tiết giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/detail_invoice.png)
+
+-   In hoá đơn
+-   !["In hoá đơn"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/pdf.png)
