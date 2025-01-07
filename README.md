@@ -17,13 +17,13 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 ## FE:
 
 -   Giao diện website
-    !["Giao diện website"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/baner.png)
+    !["Giao diện website"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/baner.png)
 -   Giao diện sản phẩm
-    !["Sản phẩm"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/products.png)
+    !["Sản phẩm"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/products.png)
 -   Giỏ hàng - CRUD
-    !["Giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/cart.png)
+    !["Giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/cart.png)
 -   Thông tin tài khoản - CRUD
-    !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/info.png)
+    !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/info.png)
 
 ## BE:
 
