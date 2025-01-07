@@ -31,7 +31,7 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
     !["Đăng kí, đăng nhập"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/middleware.png)
 
 -   Dasboard
-    !["Dasboard"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/admindashboard.png)
+    !["Dasboard"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/admindasboard.png)
     Quản lý sản phẩm - CRUD
     ![" Danh mục sản phẩm"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/products.png)
 
@@ -48,4 +48,4 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
     !["chi tiết giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/detail_invoice.png)
 
 -   In hoá đơn
--   !["In hoá đơn"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/pdf.png)
+-   !["In hoá đơn"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/pdf_invoice.png)
