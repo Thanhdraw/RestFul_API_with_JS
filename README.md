@@ -14,6 +14,16 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 
 ## Features
 
+-   Xây dựng trang khách hàng
+-   Hiện thị sản phẩm
+-   Đăng kí đăng nhập tài khoản
+-   Quản lý giỏ hàng bàng darryldecode/cart
+-   Quản lý tài khoản
+-   Quản lý sản phẩm
+-   Quản lý danh mục sản phẩm
+-   Phân quyền người dùng
+-   Xây dựng trang admin
+
 ## FE:
 
 -   Giao diện website
@@ -39,7 +49,7 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
     !["Quản lý tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/users.png)
 
 -   Update tài khoản
-    ["Update tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/update_user.png)
+    ["Update tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/update.png)
 
 -   Quản lý giỏ hàng
     !["Quản lý giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/invoice.png)
