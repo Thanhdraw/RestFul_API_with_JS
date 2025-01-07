@@ -30,6 +30,7 @@ class CheckoutController extends Controller
                 'email' => $getName->user->email,
                 'phone' => $getName->user->phone,
                 'address' => $getName->user->address,
+                'total' => $getName->total
             ];
 
 

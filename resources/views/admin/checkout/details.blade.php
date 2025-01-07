@@ -62,7 +62,8 @@
         <!-- Tổng tiền -->
         <div class="mt-6 text-right">
             <p class="text-2xl font-bold text-gray-800">
-                Tổng tiền: <span class="text-green-600">{{ number_format(25000000, 2) }} VNĐ</span>
+
+                Tổng tiền: <span class="text-green-600">{{ number_format($info_user['total'], 2, ',', '.') }} VNĐ</span>
             </p>
         </div>
 

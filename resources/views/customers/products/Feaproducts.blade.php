@@ -1,3 +1,10 @@
+<?php
+use App\Models\Product;
+$isNew = Product::where('is_new', 1)->get();
+    
+?>
+
+
 <section class="py-16 bg-gray-50">
 
 
@@ -13,60 +20,26 @@
 
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <!-- Product 1 -->
-                <div class="p-6 transition-shadow bg-white shadow-lg rounded-xl hover:shadow-xl">
-                    <img class="object-cover w-full h-56 mb-4 rounded-lg" src="path/to/product-image.jpg"
-                        alt="Sản phẩm 1" />
-                    <h3 class="mb-2 text-xl font-semibold">Sản phẩm 1</h3>
-                    <p class="mb-4 text-gray-600">
-                        Mô tả ngắn gọn về sản phẩm 1
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-lg font-bold text-blue-600">1.500.000 VND</span>
-                        <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Xem chi tiết</a>
-                    </div>
-                </div>
+                @if(!empty($isNew))
+                    @foreach ($isNew as $product)
 
-                <!-- Product 2 -->
-                <div class="p-6 transition-shadow bg-white shadow-lg rounded-xl hover:shadow-xl">
-                    <img class="object-cover w-full h-56 mb-4 rounded-lg" src="path/to/product-image.jpg"
-                        alt="Sản phẩm 2" />
-                    <h3 class="mb-2 text-xl font-semibold">Sản phẩm 2</h3>
-                    <p class="mb-4 text-gray-600">
-                        Mô tả ngắn gọn về sản phẩm 2
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-lg font-bold text-blue-600">2.000.000 VND</span>
-                        <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="p-6 transition-shadow bg-white shadow-lg rounded-xl hover:shadow-xl">
-                    <img class="object-cover w-full h-56 mb-4 rounded-lg" src="path/to/product-image.jpg"
-                        alt="Sản phẩm 3" />
-                    <h3 class="mb-2 text-xl font-semibold">Sản phẩm 3</h3>
-                    <p class="mb-4 text-gray-600">
-                        Mô tả ngắn gọn về sản phẩm 3
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-lg font-bold text-blue-600">1.800.000 VND</span>
-                        <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Xem chi tiết</a>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="p-6 transition-shadow bg-white shadow-lg rounded-xl hover:shadow-xl">
-                    <img class="object-cover w-full h-56 mb-4 rounded-lg" src="path/to/product-image.jpg"
-                        alt="Sản phẩm 4" />
-                    <h3 class="mb-2 text-xl font-semibold">Sản phẩm 4</h3>
-                    <p class="mb-4 text-gray-600">
-                        Mô tả ngắn gọn về sản phẩm 4
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-lg font-bold text-blue-600">2.500.000 VND</span>
-                        <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Xem chi tiết</a>
-                    </div>
-                </div>
+                        <div class="p-6 transition-shadow bg-white shadow-lg rounded-xl hover:shadow-xl">
+                            <a href="{{route('shop.detail', $product->id)}}">
+                                <img class="object-cover w-64 h-64 mb-4 rounded-lg" src="{{$product->image}}"
+                                    alt="Sản phẩm 1" />
+                            </a>
+                            <h3 class="mb-2 text-xl font-semibold">{{$product->name}}</h3>
+                            <p class="mb-4 text-gray-600">
+                                {{$product->description}}
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="text-lg font-bold text-blue-600">{{number_format($product->price, 2, '.', '.')}}đ</span>
+                                <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

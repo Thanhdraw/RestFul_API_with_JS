@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <section class="bg-gradient-to-r from-blue-600 to-purple-600">
     <div class="container px-6 py-16 mx-auto">
         <div class="flex flex-col items-center md:flex-row">
@@ -9,6 +14,7 @@
                     Khám phá bộ sưu tập điện thoại mới nhất với giá tốt
                     nhất thị trường
                 </p>
+
                 <div class="space-x-4">
                     <button
                         class="px-8 py-3 font-bold text-blue-600 transition duration-300 bg-white rounded-lg hover:bg-gray-100">

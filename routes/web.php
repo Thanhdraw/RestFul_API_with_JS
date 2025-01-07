@@ -73,6 +73,10 @@ Route::middleware(['auth', 'checkRole:customer'])->group(function () {
     Route::get('/shop/products', action: [ShopControllerProductController::class, 'show'])->name('shop.products');
     Route::get('/shop/products/{id}', action: [ShopControllerProductController::class, 'detailProduct'])->name('shop.detail');
 
+
+
+    Route::get('/shop/featured', action: [ShopControllerProductController::class, 'is_featured'])->name('shop.featured');
+
     Route::get('/shop/products/category/{id}', action: [ShopControllerProductController::class, 'show'])->name('shop.category');
 
     // Cart - Action

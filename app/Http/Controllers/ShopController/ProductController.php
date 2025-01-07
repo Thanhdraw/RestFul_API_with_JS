@@ -97,5 +97,15 @@ class ProductController extends Controller
         }
     }
 
+    public function is_featured()
+    {
+        try {
+            $featured = Product::where('is_featured', 1)->get();
+            dd($featured);
+            return view('customers.products.productsection', compact('featured'));
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
 }
