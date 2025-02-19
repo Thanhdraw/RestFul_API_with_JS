@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ShopController\CartController;
 use App\Http\Controllers\ShopController\ProductController as ShopControllerProductController;
 use App\Http\Controllers\ShopController\Profile\ProfileController as ProfileProfileController;
+use App\Http\Controllers\Api\ProductController as API_Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +61,7 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/transation/details/{id}', [CheckoutController::class, 'checkoutDetails'])->name('transation.details');
     Route::get('/order/{orderId}/invoice', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
     Route::get('/invoice/{invoice}/pdf', [CheckoutController::class, 'generatePDF'])->name('invoice.pdf');
-
+    Route::get('api/list', [API_Product::class, 'index'])->name('api.list');
 });
 
 

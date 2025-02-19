@@ -22,6 +22,7 @@
                 <a href="{{route('shop.products')}}" class="transition-colors hover:text-blue-400">Sản phẩm</a>
                 <a href="#" class="transition-colors hover:text-blue-400">Khuyến mãi</a>
                 <a href="#" class="transition-colors hover:text-blue-400">Liên hệ</a>
+                <a href="#" class="transition-colors hover:text-blue-400">API</a>
             </div>
 
             <!-- Search and User Actions -->

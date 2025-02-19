@@ -153,7 +153,27 @@
 
                         </div>
                     </div>
-
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open"
+                            class="flex items-center justify-between w-full px-4 py-2 mt-2 text-sm font-medium text-gray-800 rounded-md hover:bg-gray-100 focus:outline-none">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                                </svg>
+                                <span>API</span>
+                            </div>
+                            <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': open }" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div x-show="open" class="px-4 mt-2 space-y-2">
+                            <a href="{{route('api.list')}}"
+                                class="block px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">Đơn hàng</a>
+                        </div>
+                    </div>
                     
                 </nav>
             </aside>
