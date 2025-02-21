@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Danh sách sản phẩm</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <h1>Danh sách sản phẩm</h1>
+        <ul id="product-list"></ul>
+
+        <script>
+            // Gọi API từ Laravel
+            axios
+                .get("http://127.0.0.1:8000/api/products")
+                .then((response) => {
+                    if (response.data.status === "success") {
+                        let products = response.data.data;
+                        let productList =
+                            document.getElementById("product-list");
+
+                        // Hiển thị danh sách sản phẩm
+                        products.forEach((product) => {
+                            let li = document.createElement("li");
+                            li.textContent = `${product.name} - ${product.price} VNĐ`;
+                            productList.appendChild(li);
+                        });
+                    }
+                })
+                .catch((error) => console.error("Lỗi:", error));
+        </script>
+    </body>
+</html>

@@ -62,6 +62,12 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/order/{orderId}/invoice', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
     Route::get('/invoice/{invoice}/pdf', [CheckoutController::class, 'generatePDF'])->name('invoice.pdf');
     Route::get('api/list', [API_Product::class, 'index'])->name('api.list');
+
+
+    Route::get('/test/api', function () {
+        return view('admin.api.api');
+    });
+
 });
 
 

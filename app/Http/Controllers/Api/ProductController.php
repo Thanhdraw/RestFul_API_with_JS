@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Http;
-
+use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     /**
@@ -14,12 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        try {
-            $products = Product::all();
-            return response()->json($products, 200);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Error fetching products', 'error' => $e->getMessage()], 500);
-        }
+        $products = Product::all();
+        return response()->json([
+            'status' => 'success',
+            'data' => $products
+        ]);
     }
 
 
