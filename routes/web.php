@@ -64,9 +64,12 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('api/list', [API_Product::class, 'index'])->name('api.list');
 
 
-    Route::get('/test/api', function () {
+    Route::get('/admin/products', function () {
         return view('admin.api.api');
     })->name('admin/products');
+    Route::get('/admin/products/{id}', function () {
+        return view('admin.api.detail');
+    })->name('admin/products/details');
 
 });
 

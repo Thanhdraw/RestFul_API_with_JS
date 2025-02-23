@@ -88,41 +88,29 @@ class ProductController extends Controller
 
     public function updateProduct(Request $request, $id)
     {
-
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
-                // Tối đa 13 chữ số trước dấu thập phân và tối đa 2 
-                // chữ số sau dấu thập phân
-                'price' => [
-                    'required',
-                    'numeric',
-                    'regex:/^\d{1,13}(\.\d{1,2})?$/',
-                ],
-                'category_id' => 'required',
-                'image' => 'nullable|string|max:255',
-                'slug' => 'required|string|max:255',
+                'price' => ['required', 'numeric', 'regex:/^\d{1,13}(\.\d{1,2})?$/'],
                 'description' => 'nullable|string',
+                'category_id' => 'required|exists:categories,id',
+                'slug' => 'required|string|unique:products,slug,',
             ]);
+
             $product = Product::find($id);
-            $image = $request->input('image') ?: $product->image;
-            $product->update([
-                'name' => $request->input('name'),
-                'price' => $request->input('price'),
-                'category_id' => $request->input('category_id'),
-                'image' => $image,
-                'slug' => $request->input('slug'),
-                'description' => $request->input('description'),
-            ]);
-            if ($product) {
-                return redirect()->back()->with('success', 'Cap nhat thanh cong');
-            } else {
-                return redirect()->back()->with('error', 'Cap nhat that bai');
+            if (!$product) {
+                return response()->json(['error' => 'Sản phẩm không tồn tại'], 404);
             }
+
+            $product->update($request->all());
+
+            return response()->json(['message' => 'Cập nhật thành công!', 'product' => $product], 200);
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi  ' . $e->getMessage());
+            return response()->json(['error' => 'Lỗi: ' . $e->getMessage()], 500);
         }
     }
+
+
 
 
     public function deleteProduct($id)

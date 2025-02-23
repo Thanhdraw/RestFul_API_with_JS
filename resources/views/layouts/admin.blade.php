@@ -173,7 +173,7 @@
                         </button>
                         <div x-show="open" class="px-4 mt-2 space-y-2">
                             <a href="{{route('admin/products')}}"
-                                class="block px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">Đơn hàng</a>
+                                class="block px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">Products</a>
                         </div>
                     </div>
                     
