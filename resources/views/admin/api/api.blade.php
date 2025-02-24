@@ -5,6 +5,10 @@
     <body class="p-6 bg-gray-100">
         <div class="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-lg">
             <h1 class="mb-4 text-3xl font-bold text-gray-800">Danh sách sản phẩm</h1>
+            <button onclick="openCreateProductModal()"
+                class="px-6 py-2 mt-5 text-white transition bg-blue-500 rounded-lg hover:bg-blue-600">
+                Tạo mới
+            </button>
             <ul id="product-list" class="space-y-4"></ul>
             <div id="pagination" class="flex justify-center mt-6"></div>
         </div>
@@ -60,11 +64,41 @@
                 </div>
                 <div class="flex justify-end space-x-2">
                     <button onclick="closeEditModal()" class="px-4 py-2 bg-gray-400 rounded">Hủy</button>
-                    <button onclick="updateProduct()" class="px-4 py-2 text-white bg-blue-500 rounded">Lưu</button>
+                    <button onclick="updateProductUI()" class="px-4 py-2 text-white bg-blue-500 rounded">Lưu</button>
                 </div>
             </div>
         </div>
+        <!-- Modal tạo mới -->
 
+        <div id="createModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
+            <div class="p-6 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-4 text-xl font-semibold">Tạo sản phẩm</h2>
+                <div class="mb-2">
+                    <label class="block">Tên sản phẩm</label>
+                    <input type="text" id="create_name" class="w-full px-2 py-1 border rounded">
+                </div>
+                <div class="mb-2">
+                    <label class="block">Giá</label>
+                    <input type="number" id="create_price" class="w-full px-2 py-1 border rounded">
+                </div>
+                <div class="mb-2">
+                    <label class="block">Category</label>
+                    <input type="number" id="create_category" class="w-full px-2 py-1 border rounded">
+                </div>
+                <div class="mb-2">
+                    <label class="block">Slug</label>
+                    <input type="text" id="create_slug" class="w-full px-2 py-1 border rounded">
+                </div>
+                <div class="mb-2">
+                    <label class="block">Mô tả</label>
+                    <textarea id="create_description" class="w-full px-2 py-1 border rounded"></textarea>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button onclick="closeCreateModal()" class="px-4 py-2 bg-gray-400 rounded">Hủy</button>
+                    <button onclick="createProductHandler()" class="px-4 py-2 text-white bg-blue-500 rounded">Lưu</button>
+                </div>
+            </div>
+        </div>
 
 
         <div id="pagination" class="flex justify-center mt-4 space-x-2"></div>

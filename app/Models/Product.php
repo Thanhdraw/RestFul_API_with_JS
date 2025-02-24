@@ -13,6 +13,9 @@ class Product extends Model
     use HasFactory;
 
     public $fillable = ['name', 'slug', 'price', 'description', 'image', 'category_id'];
+    protected $attributes = [
+        'image' => 'default.jpg',
+    ];
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');

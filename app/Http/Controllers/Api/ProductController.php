@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 class ProductController extends Controller
@@ -24,6 +25,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|string',
+            'category_id' => 'required|integer|exists:categories,id',
+            'slug' => 'required|string|unique:products,slug|max:255',
+            'description' => 'nullable|string',
+        ]);
+        $product = Product::create($validated);
+        return response()->json(['message' => 'Thêm sản phẩm thành công', 'product' => $product], 201);
     }
 
     /**
