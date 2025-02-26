@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route group yêu cầu xác thực Sanctum
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products', [ProductController::class, 'index']); // Lấy danh sách sản phẩm
+    Route::get('/products/search', [ProductController::class, 'search']);
     Route::get('/products/{id}', [ProductController::class, 'show']); // Lấy chi tiết sản phẩm
     Route::post('/products', [ProductController::class, 'store']); // Thêm sản phẩm
     Route::put('/products/{id}', [ProductController::class, 'update']); // Cập nhật sản phẩm

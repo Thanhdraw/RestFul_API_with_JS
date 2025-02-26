@@ -1,15 +1,21 @@
 // import { data } from "alpinejs";
+import axios from "axios";
 import {
     fetchProducts,
     deleteProduct,
     getProductDetail,
     updateProduct,
+    searchProducts,
 } from "./api.js";
 import { loadProducts } from "./app.js";
-
 export function renderProducts(products) {
     let productList = document.getElementById("product-list");
     productList.innerHTML = "";
+
+    if (!Array.isArray(products) || products.length === 0) {
+        productList.innerHTML = `<li class="p-4 text-gray-500">Không tìm thấy sản phẩm nào.</li>`;
+        return;
+    }
 
     products.forEach((product) => {
         let li = document.createElement("li");
@@ -30,7 +36,6 @@ export function renderProducts(products) {
                     onclick='openEditModal(${JSON.stringify(
                         product
                     )})'>Sửa</button>
-
                 <button class="text-sm text-white bg-red-500 px-2 py-1 rounded"
                     onclick="handleDeleteProduct('${product.id}')">Xoá</button>
             </div>
@@ -209,9 +214,33 @@ window.closeEditModal = () => {
 
 // window serch
 window.addEventListener("DOMContentLoaded", function () {
-    window.searchProducts = () => {
-        let text = this.document.getElementById("search-input");
-        let search = text.value;
-        console.log("ban dang nhan nut tim kiem", search);
+    window.searchProducts = async function () {
+        let text = document.getElementById("search-input").value.trim();
+
+        if (!text) {
+            console.log("Vui lòng nhập từ khóa tìm kiếm.");
+            return;
+        }
+
+        console.log("Tìm kiếm:", text);
+        try {
+            let products = await searchProducts(text);
+
+            if (
+                !products ||
+                !Array.isArray(products) ||
+                products.length === 0
+            ) {
+                console.warn("Không có sản phẩm phù hợp.");
+                renderProducts([]);
+                return;
+            }
+
+            console.log("Sản phẩm nhận được:", products);
+            renderProducts(products); // Không cần `products.data`
+        } catch (error) {
+            console.error("Lỗi khi tìm kiếm sản phẩm:", error);
+            renderProducts([]);
+        }
     };
 });

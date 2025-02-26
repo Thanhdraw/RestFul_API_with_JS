@@ -3,16 +3,44 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+
+use function Laravel\Prompts\error;
+
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    public function search(Request $request)
+    {
+        $query = $request->query('q');
+
+        if (!$query) {
+            return response()->json([
+                'products' => [],
+                'message' => 'Vui lòng nhập từ khóa tìm kiếm'
+            ], 400);
+        }
+
+        $products = Product::where('name', 'LIKE', "%{$query}%")->get();
+
+        return response()->json([
+            'products' => $products
+        ]);
+    }
+
+
+
+
+
+
     public function index()
     {
         return response()->json(Product::paginate(10)); // Trả về JSON chuẩn
@@ -87,6 +115,10 @@ class ProductController extends Controller
         ]);
         return response()->json(['message' => 'Cập nhật sản phẩm thành công', 'product' => $product], 200);
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.

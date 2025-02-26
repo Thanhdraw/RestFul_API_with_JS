@@ -71,6 +71,31 @@ export async function updateProduct(id, data) {
     }
 }
 
+// tim kiem san pham
+// api.j
+export async function searchProducts(text) {
+    try {
+        let response = await axios.get(`${API_BASE_URL}/search?q=${text}`);
+
+        if (!response.data || !Array.isArray(response.data.products)) {
+            console.warn(
+                "API không trả về danh sách sản phẩm hợp lệ",
+                response.data
+            );
+            return [];
+        }
+
+        console.log("Dữ liệu hợp lệ:", response.data.products);
+        return response.data.products;
+    } catch (error) {
+        console.error(
+            "Lỗi khi tìm kiếm sản phẩm:",
+            error.response?.data || error.message
+        );
+        return [];
+    }
+}
+
 // api.js
 export async function createProduct(data) {
     try {
