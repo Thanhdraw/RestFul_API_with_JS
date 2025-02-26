@@ -1,7 +1,7 @@
 <!-- Header -->
 
 
-<header class="relative z-50 text-white bg-gray-900 shadow-lg">
+<header class="relative z-50 text-white bg-gray-900 shadow-lg ">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <nav class="container px-6 py-4 mx-auto">
         <div class="flex items-center justify-between">
@@ -21,8 +21,8 @@
                 <a href="{{route('shop.index')}}" class="transition-colors hover:text-blue-400">Trang chủ</a>
                 <a href="{{route('shop.products')}}" class="transition-colors hover:text-blue-400">Sản phẩm</a>
                 <a href="#" class="transition-colors hover:text-blue-400">Khuyến mãi</a>
-                <a href="#" class="transition-colors hover:text-blue-400">Liên hệ</a>
-                <a href="#" class="transition-colors hover:text-blue-400">API</a>
+                <a href="{{ route('shop.contact') }}" class="transition-colors hover:text-blue-400">Liên hệ</a>
+
             </div>
 
             <!-- Search and User Actions -->

@@ -36,6 +36,7 @@ Route::get('/', function () {
 });
 
 
+
 // Route::get('/dashboard', [DashboardController::class, 'show'])
 //     ->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -109,6 +110,11 @@ Route::middleware(['auth', 'checkRole:customer'])->group(function () {
     Route::get('/shop/search/{search?}', [ShopControllerProductController::class, 'search'])->name('shop.search');
     // cart controller
     Route::get('/shop/cart', [ShopControllerCartController::class, 'cart'])->name('shop.cart');
+
+
+    Route::get('/shop/contact', function () {
+        return view('customers.contact.email');
+    })->name('shop.contact');
 });
 
 

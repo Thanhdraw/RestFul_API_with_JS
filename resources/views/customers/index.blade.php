@@ -25,6 +25,8 @@
 
     @yield('content')
 
+    @yield('contact')
+
 
     @include('customers.products.productsection')
 
@@ -37,6 +39,9 @@
 
     <!-- Features Section -->
 
+
+    <!-- content  -->
+    @include('customers.contact.why');
     <!-- Newsletter Section -->
 
 
