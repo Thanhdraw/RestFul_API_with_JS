@@ -206,3 +206,12 @@ window.closeEditModal = () => {
     const modal = document.getElementById("createModal");
     modal.classList.add("hidden");
 };
+
+// window serch
+window.addEventListener("DOMContentLoaded", function () {
+    window.searchProducts = () => {
+        let text = this.document.getElementById("search-input");
+        let search = text.value;
+        console.log("ban dang nhan nut tim kiem", search);
+    };
+});

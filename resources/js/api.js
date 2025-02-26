@@ -2,9 +2,36 @@ import axios from "axios";
 
 const API_BASE_URL = "http://127.0.0.1:8000/api/products";
 
+axios.defaults.withCredentials = true;
+
+export async function login(email, password) {
+    await fetchCSRFToken();
+    const response = await axios.post("http://127.0.0.1:8000/api/login", {
+        email,
+        password,
+    });
+
+    const token = response.data.token;
+    localStorage.setItem("token", token);
+
+    // Cập nhật headers mặc định cho tất cả request
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+}
+
+// Trước khi gửi request API, gọi `sanctum/csrf-cookie`
+export async function fetchCSRFToken() {
+    await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie");
+}
+
 export async function fetchProducts(page = 1) {
     try {
-        let response = await axios.get(`${API_BASE_URL}?page=${page}`);
+        const token = localStorage.getItem("token");
+
+        let response = await axios.get(`${API_BASE_URL}?page=${page}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(response.data);
+
         return response.data;
     } catch (error) {
         console.log("lỗi : ", error);
