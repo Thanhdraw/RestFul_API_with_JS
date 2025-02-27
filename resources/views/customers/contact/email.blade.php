@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Liên Hệ</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    @vite(['resources/css/app.css']);
+    @vite(['resources/css/app.css', 'resources/js/contact.js']);
 </head>
 
 <body class="top-0 font-sans bg-gray-100">
@@ -73,7 +73,7 @@
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 required></textarea>
                         </div>
-                        <button type="submit"
+                        <button type="submit" id="submitBtn" onclick="sendContact()"
                             class="w-full px-6 py-2 font-medium text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:w-auto">Gửi
                             tin nhắn</button>
                     </form>

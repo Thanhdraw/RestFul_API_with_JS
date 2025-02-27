@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL = "http://127.0.0.1:8000/api/products";
-
+const API_BASE_CONTACT = "http://127.0.0.1:8000/api";
 axios.defaults.withCredentials = true;
 
 export async function login(email, password) {
@@ -107,6 +107,19 @@ export async function createProduct(data) {
     } catch (error) {
         console.error(
             "❌ Lỗi khi tạo sản phẩm:",
+            error.response?.data || error.message
+        );
+        return null;
+    }
+}
+export async function sendContact(data) {
+    try {
+        let response = await axios.post(`${API_BASE_CONTACT}/contacts`, data);
+        console.log(response);
+        return response.data;
+    } catch (error) {
+        console.error(
+            "❌ Lỗi khi gửi phản hồi:",
             error.response?.data || error.message
         );
         return null;

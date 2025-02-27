@@ -9,6 +9,7 @@ use App\Models\Product;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use App\Models\contact;
 
 use function Laravel\Prompts\error;
 
@@ -140,4 +141,8 @@ class ProductController extends Controller
         }
 
     }
+
+
+
+
 }
