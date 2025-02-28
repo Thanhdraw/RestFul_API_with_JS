@@ -1,4 +1,4 @@
-@include('layouts.custommer.header');
+@include('layouts.custommer.header')
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Liên Hệ</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/contact.js']);
-</head>
+    @vite(['resources/css/app.css', 'resources/js/contact.js'])
 
 <body class="top-0 font-sans bg-gray-100">
     <div class="flex flex-col min-h-screen">
@@ -34,12 +33,14 @@
                 <p class="max-w-2xl text-gray-600">Chúng tôi luôn sẵn sàng giải đáp mọi thắc mắc của bạn. Vui lòng điền
                     thông tin vào biểu mẫu dưới đây hoặc liên hệ với chúng tôi qua thông tin được cung cấp.</p>
             </section>
+            <div id="notice" class="hidden p-4 mt-4 text-center text-white rounded-lg"></div>
+
 
             <div class="grid gap-8 mb-12 md:grid-cols-2">
                 <!-- Contact Form -->
                 <div class="p-6 bg-white rounded-lg shadow-md">
                     <h2 class="mb-6 text-2xl font-semibold text-gray-800">Gửi Tin Nhắn</h2>
-                    <form>
+                    <form id="contactForm">
                         <div class="mb-4">
                             <label for="name" class="block mb-2 font-medium text-gray-700">Họ và tên</label>
                             <input type="text" id="name" name="name"
