@@ -7,7 +7,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/ui.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/ui.js','resources/js/entity/user.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
@@ -175,7 +175,13 @@
                             <a href="{{route('admin/products')}}"
                                 class="block px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">Products</a>
                         </div>
+                        <div x-show="open" class="px-4 mt-2 space-y-2">
+                            <a href="{{route('admin/users')}}"
+                                class="block px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100">Users</a>
+                        </div>
                     </div>
+                    <!-- Users -->
+                     
                     
                 </nav>
             </aside>

@@ -16,11 +16,25 @@ export async function login(email, password) {
 
     // Cập nhật headers mặc định cho tất cả request
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    console.log(axios.defaults.headers.common["Authorization"]);
 }
 
 // Trước khi gửi request API, gọi `sanctum/csrf-cookie`
 export async function fetchCSRFToken() {
     await axios.get("http://127.0.0.1:8000/sanctum/csrf-cookie");
+}
+
+// Config Users
+// api.js
+export async function getUser() {
+    try {
+        let response = await axios.get(`${API_BASE_CONTACT}/users`);
+        console.log(response.data);
+
+        return response.data;
+    } catch (error) {
+        console.log("lỗi : ", error);
+    }
 }
 
 export async function fetchProducts(page = 1) {

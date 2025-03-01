@@ -4,6 +4,7 @@ import {
     fetchProducts,
     deleteProduct,
     getProductDetail,
+    getUser,
     updateProduct,
     searchProducts,
 } from "./api.js";
@@ -244,3 +245,34 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     };
 });
+export async function renderUser() {
+    document.addEventListener("DOMContentLoaded", async () => {
+        const userList = document.getElementById("userList");
+
+        const data = await getUser();
+        console.log("Data received:", data);
+
+        if (!data || !data.users || !Array.isArray(data.users)) {
+            userList.innerHTML = `<p class="text-red-500">Không có dữ liệu người dùng.</p>`;
+            return;
+        }
+
+        userList.innerHTML = data.users
+            .map(
+                (user) => `
+            <div class="p-4 border rounded-lg bg-gray-50 shadow-sm">
+                <p class="text-lg font-semibold">${user.name}</p>
+                <p class="text-gray-600">Email: ${user.email}</p>
+                <p class="text-gray-600">Role ID: ${user.role_id}</p>
+                <div class="mt-4 flex justify-end gap-2">
+                    <button onclick="viewUser(${user.id})" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">View</button>
+                    <button onclick="editUser(${user.id})" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-yellow-600">Edit</button>
+                    <button onclick="deleteUser(${user.id})" class="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600">Delete</button>
+                </div>
+            </div>
+        `
+            )
+            .join("");
+    });
+}
+renderUser();

@@ -71,6 +71,10 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/products/{id}', function () {
         return view('admin.api.detail');
     })->name('admin/products/details');
+    // Users
+    Route::get('/admin/users', function () {
+        return view('admin.api.user');
+    })->name('admin/users');
 
 });
 

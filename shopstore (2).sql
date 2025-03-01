@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 07, 2025 lúc 06:00 AM
+-- Thời gian đã tạo: Th3 01, 2025 lúc 06:40 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `shopstore`
+-- Cơ sở dữ liệu: `restfull_api`
 --
 
 -- --------------------------------------------------------
@@ -67,6 +67,33 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALU
 (8, 'Tai nghe', 'tai-nghe', '2024-12-31 05:23:08', '2024-12-31 05:23:08'),
 (9, 'Máy tính để bàn', 'may-tinh-de-ban', '2024-12-31 05:23:08', '2024-12-31 05:23:08'),
 (10, 'Thiết bị chơi game', 'thiet-bi-choi-game', '2024-12-31 05:23:08', '2024-12-31 05:23:08');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(24, 'Thanh QuocDang Dang Quoc', 'dangquocthanh2812erwww@gmail.com', '0977438245', NULL, NULL, '2025-02-28 07:57:04', '2025-02-28 07:57:04'),
+(25, 'Thanh QuocDang Dang Quoc', 'dangquocthanh2812@gmail.com', '0977438245', NULL, NULL, '2025-02-28 07:58:19', '2025-02-28 07:58:19'),
+(26, 'Thanh QuocDang Dang Quoc', 'dangquocthanh2812111@gmail.com', '0977438245', NULL, NULL, '2025-02-28 07:58:59', '2025-02-28 07:58:59'),
+(27, 'Thanh QuocDang Dang Quoc', 'camtu@gmail.com', '0977438245', NULL, NULL, '2025-02-28 08:02:27', '2025-02-28 08:02:27');
 
 -- --------------------------------------------------------
 
@@ -154,7 +181,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (30, '2025_01_06_033710_add_phone_and_address_to_users_table', 11),
 (31, '2025_01_06_044048_create_invoices_table', 12),
 (32, '2025_01_06_140625_add_user_id_to_invoices_table', 13),
-(33, '2025_01_07_031145_add_is_featured_and_is_new_to_products_table', 14);
+(33, '2025_01_07_031145_add_is_featured_and_is_new_to_products_table', 14),
+(34, '2025_02_27_154721_create_contacts_table', 15);
 
 -- --------------------------------------------------------
 
@@ -177,7 +205,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `user_id`, `total`, `status`, `created_at`, `updated_at`) VALUES
 (44, 3, 25000000.00, 'Pending', '2025-01-05 21:32:35', '2025-01-05 21:32:35'),
-(45, 14, 61500000.00, 'Pending', '2025-01-06 08:37:07', '2025-01-06 08:37:07');
+(45, 14, 61500000.00, 'Pending', '2025-01-06 08:37:07', '2025-01-06 08:37:07'),
+(46, 14, 80000000.00, 'Pending', '2025-01-07 05:59:39', '2025-01-07 05:59:39'),
+(47, 3, 112000000.00, 'Pending', '2025-01-07 06:39:28', '2025-01-07 06:39:28');
 
 -- --------------------------------------------------------
 
@@ -203,7 +233,12 @@ CREATE TABLE `orders_items` (
 INSERT INTO `orders_items` (`id`, `order_id`, `product_name`, `price`, `quantity`, `attributes`, `created_at`, `updated_at`) VALUES
 (2, 44, 'iPhone 15 Pro Max', 25000000.00, 1, NULL, '2025-01-05 21:32:35', '2025-01-05 21:32:35'),
 (3, 45, 'iPhone 15 Pro Max', 25000000.00, 1, NULL, '2025-01-06 08:37:07', '2025-01-06 08:37:07'),
-(4, 45, 'Samsung Galaxy S23 Ultra', 36500000.00, 1, NULL, '2025-01-06 08:37:07', '2025-01-06 08:37:07');
+(4, 45, 'Samsung Galaxy S23 Ultra', 36500000.00, 1, NULL, '2025-01-06 08:37:07', '2025-01-06 08:37:07'),
+(5, 46, 'iPhone 15 Pro Max', 25000000.00, 1, NULL, '2025-01-07 05:59:39', '2025-01-07 05:59:39'),
+(6, 46, 'MacBook Pro 14-inch M2', 55000000.00, 1, NULL, '2025-01-07 05:59:39', '2025-01-07 05:59:39'),
+(7, 47, 'iPhone 15 Pro Max', 25000000.00, 1, NULL, '2025-01-07 06:39:28', '2025-01-07 06:39:28'),
+(8, 47, 'MacBook Pro 14-inch M2', 55000000.00, 1, NULL, '2025-01-07 06:39:28', '2025-01-07 06:39:28'),
+(9, 47, 'iPad Pro 12.9-inch M2', 32000000.00, 1, NULL, '2025-01-07 06:39:28', '2025-01-07 06:39:28');
 
 -- --------------------------------------------------------
 
@@ -236,6 +271,19 @@ CREATE TABLE `personal_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 1, 'authToken', '14b453d365d572269ad59cb3e8fb3980643ffed328716810432f4568c1a09c22', '[\"*\"]', NULL, NULL, '2025-02-26 01:37:16', '2025-02-26 01:37:16'),
+(2, 'App\\Models\\User', 1, 'authToken', '64f0959cae1e6a9d5680eef6e294adaa01e39514cf15abbc7e88e4329e8d6d76', '[\"*\"]', NULL, NULL, '2025-02-26 01:41:20', '2025-02-26 01:41:20'),
+(3, 'App\\Models\\User', 1, 'authToken', '8c5ed17c78f7647c8b672ee945ecd758b4bafa65c7d0f3dc4d2c7faeb5f3f5ad', '[\"*\"]', NULL, NULL, '2025-02-26 01:42:31', '2025-02-26 01:42:31'),
+(4, 'App\\Models\\User', 1, 'api-token', '742dfeed079b4ed0c554bc239f8d13b18d1312391739d9fa392d1f890a78f105', '[\"*\"]', '2025-02-27 09:25:26', NULL, '2025-02-26 01:46:10', '2025-02-27 09:25:26'),
+(5, 'App\\Models\\User', 1, 'authToken', '90b97190b24a2507ef6e8eae7c5000682b887dd9afe4b748583bce2842911080', '[\"*\"]', '2025-02-27 09:27:55', NULL, '2025-02-27 09:26:02', '2025-02-27 09:27:55'),
+(6, 'App\\Models\\User', 1, 'authToken', '3f417af11bcbec3c028ae210069d252496b3c07676dc1606e262a30bc8173e29', '[\"*\"]', '2025-02-27 09:56:59', NULL, '2025-02-27 09:28:05', '2025-02-27 09:56:59'),
+(7, 'App\\Models\\User', 1, 'authToken', 'aa57a47daa979785bb42c8452692fd437d910cb353bb8a02493321c6b115853e', '[\"*\"]', '2025-02-28 20:22:07', NULL, '2025-02-28 19:56:32', '2025-02-28 20:22:07');
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +310,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `price`, `description`, `image`, `category_id`, `created_at`, `updated_at`, `deleted_at`, `is_featured`, `is_new`) VALUES
-(1, 'iPhone 15 Pro Max', 'iphone-15-pro-max', 25000000.00, 'iPhone 15 Pro Max với thiết kế hiện đại, chip A17 Bionic, camera ấn tượng.', 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-15-pro-max_3.png', 1, '2024-12-31 05:23:08', '2025-01-03 05:43:32', NULL, 1, 0),
+(1, 'iPhone 15 Pro Max', 'iphone-15-pro-max', 25000000.00, 'iPhone 15 Pro Max với thiết kế hiện đại, chip A17 Bionic, camera ấn tượng.', 'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-15-pro-max_3.png', 1, '2024-12-31 05:23:08', '2025-02-24 06:38:00', NULL, 1, 0),
 (2, 'Samsung Galaxy S23 Ultra', 'samsung-galaxy-s23-ultra', 36500000.00, 'Galaxy S23 Ultra với màn hình AMOLED, bút S Pen và camera 200MP.', 'https://samcenter.vn/images/thumbs/0003280_galaxy-s23-ultra-512gb_550.jpeg', 1, '2024-12-31 05:23:08', '2025-01-03 05:43:54', NULL, 1, 0),
 (3, 'MacBook Pro 14-inch M2', 'macbook-pro-14-m2', 55000000.00, 'MacBook Pro M2 với màn hình Retina, hiệu năng vượt trội.', 'https://bizweb.dktcdn.net/thumb/1024x1024/100/318/659/products/ezgif-com-gif-maker.jpg?v=1675834782190', 2, '2024-12-31 05:23:08', '2025-01-03 05:44:15', NULL, 0, 1),
 (4, 'Dell XPS 13 Plus', 'dell-xps-13-plus', 45000000.00, 'Dell XPS 13 Plus với màn hình InfinityEdge và hiệu năng mạnh mẽ.', 'https://no1computer.vn/images/products/2023/10/21/large/dell-xps-13-plus-9320-i7-1260p-3-_1697884770.jpg', 2, '2024-12-31 05:23:08', '2025-01-03 05:44:47', NULL, 1, 0),
@@ -334,9 +382,11 @@ INSERT INTO `products` (`id`, `name`, `slug`, `price`, `description`, `image`, `
 (70, 'Bose Headphones Đồng hồ 1', 'bose-headphones-đồng-hồ-1', 50730400.57, 'Mô tả cho Bose Headphones Đồng hồ 1 thuộc danh mục Đồng hồ.', 'bose-headphones-đồng-hồ-1.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0),
 (71, 'Samsung Monitor Đồng hồ 2', 'samsung-monitor-đồng-hồ-2', 50961467.44, 'Mô tả cho Samsung Monitor Đồng hồ 2 thuộc danh mục Đồng hồ.', 'samsung-monitor-đồng-hồ-2.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0),
 (72, 'Apple TV Đồng hồ 3', 'apple-tv-đồng-hồ-3', 31200955.53, 'Mô tả cho Apple TV Đồng hồ 3 thuộc danh mục Đồng hồ.', 'apple-tv-đồng-hồ-3.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0),
-(73, 'LG TV Đồng hồ 4', 'lg-tv-đồng-hồ-4', 4758695.27, 'Mô tả cho LG TV Đồng hồ 4 thuộc danh mục Đồng hồ.', 'lg-tv-đồng-hồ-4.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0),
-(74, 'Bose Headphones Đồng hồ 5', 'bose-headphones-đồng-hồ-5', 55295850.20, 'Mô tả cho Bose Headphones Đồng hồ 5 thuộc danh mục Đồng hồ.', 'bose-headphones-đồng-hồ-5.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0),
-(75, 'Sony Camera Đồng hồ 6', 'sony-camera-đồng-hồ-6', 32938812.26, 'Mô tả cho Sony Camera Đồng hồ 6 thuộc danh mục Đồng hồ.', 'sony-camera-đồng-hồ-6.jpg', 7, '2025-01-03 09:54:26', '2025-01-03 09:54:26', NULL, 0, 0);
+(73, 'LG TV Đồng hồ 4', 'lg-tv-đồng-hồ-4', 4758695.27, 'Mô tả cho LG TV Đồng hồ 4 thuộc danh mục Đồng hồ.', 'lg-tv-đồng-hồ-4.jpg', 7, '2025-01-03 09:54:26', '2025-02-24 06:40:26', '2025-02-24 06:40:26', 0, 0),
+(74, 'Bose Headphones Đồng hồ 5', 'bose-headphones-đồng-hồ-5', 55295850.20, 'Mô tả cho Bose Headphones Đồng hồ 5 thuộc danh mục Đồng hồ.', 'bose-headphones-đồng-hồ-5.jpg', 7, '2025-01-03 09:54:26', '2025-02-23 06:33:12', '2025-02-23 06:33:12', 0, 0),
+(75, 'Sony Camera Đồng hồ 6', 'sony-camera-đồng-hồ-6', 32938812.26, 'Mô tả cho Sony Camera Đồng hồ 6 thuộc danh mục Đồng hồ.', 'sony-camera-đồng-hồ-6.jpg', 7, '2025-01-03 09:54:26', '2025-02-23 06:32:08', '2025-02-23 06:32:08', 0, 0),
+(76, 'iphone 17e', 'iphone 17e', 122222.00, 'iphone 17e', 'default.jpg', 1, '2025-02-24 07:55:53', '2025-02-24 07:55:53', NULL, 0, 0),
+(77, 'iphone 17e plus', 'iphone 17e plus', 20000.00, 'iphone 17e plus', 'default.jpg', 1, '2025-02-24 08:05:32', '2025-02-24 08:05:32', NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -387,10 +437,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `avatar`, `username`, `deleted_at`, `role_id`, `phone`, `address`) VALUES
-(1, 'Thanh QuocDang Dang Quoc', 'dangquocthanh2812@gmail.com', NULL, '$2y$12$402gDAif7AcD2wXaOY82tOQCT1F0CeJlsKtjZSwFIMvSsoItrOPie', NULL, '2025-01-02 21:08:53', '2025-01-02 21:08:53', NULL, NULL, NULL, 1, NULL, NULL),
+(1, 'Thanh QuocDang Dang Quoc', 'dangquocthanh2812@gmail.com', NULL, '$2y$12$402gDAif7AcD2wXaOY82tOQCT1F0CeJlsKtjZSwFIMvSsoItrOPie', 'QBACX3EWBYPvivFzHBj0GyFOi3SiZ1joKHhAI346PguIWpFX70T2POF5YVLs', '2025-01-02 21:08:53', '2025-01-02 21:08:53', NULL, NULL, NULL, 1, NULL, NULL),
 (3, 'quocthinh', 'quocthinh@gmail.com', NULL, '$2y$12$S3XuOVmR6bX/SeBqVI72HuV6hIeKFc6m8PPg.XrIrpamgiYq08SeC', NULL, '2025-01-02 21:36:02', '2025-01-02 21:36:02', NULL, NULL, NULL, 2, NULL, NULL),
 (11, 'kimtuyen', 'kimtuyen@gmail.com', NULL, '$2y$12$McafdLJGgsg5IZkImIhIR.ZX8g0H8YlfwYCI2ieXjyj92o.nsi/RC', NULL, '2025-01-03 02:27:15', '2025-01-03 02:27:15', NULL, NULL, NULL, 2, NULL, NULL),
-(14, 'camtu', 'camtu@gmail.com', NULL, '$2y$12$jLCgVhT3NLE1ua/m9FVCLevZOnwb5zXSpMK6lWOJ/RQn5Lqty/kOK', NULL, '2025-01-06 07:49:09', '2025-01-06 07:49:09', NULL, NULL, NULL, 2, NULL, NULL);
+(14, 'user2', 'user2@gmail.com', NULL, '$2y$12$jLCgVhT3NLE1ua/m9FVCLevZOnwb5zXSpMK6lWOJ/RQn5Lqty/kOK', NULL, '2025-01-06 07:49:09', '2025-01-07 06:19:11', NULL, NULL, NULL, 2, '1900 1234', '123 Quận ABC, TP.HCM'),
+(15, 'camtu', 'camtu@gmail.com', NULL, '$2y$12$6r9gaK/1gnEwcWdgLr.KiOLhGDHD6vw6oR794hmxe9ZQ8TlfZbbRq', '14ykFcDRQzir6j7U8T0ht5iX2Ljv9Sbwxs32K5HVLtAucM4qLn9is8qRf96w', '2025-02-18 07:49:51', '2025-02-18 07:49:51', NULL, NULL, NULL, 2, NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -409,6 +460,13 @@ ALTER TABLE `carts`
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_slug_unique` (`slug`);
+
+--
+-- Chỉ mục cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `contacts_email_unique` (`email`);
 
 --
 -- Chỉ mục cho bảng `failed_jobs`
@@ -500,6 +558,12 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -515,31 +579,31 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `orders_items`
 --
 ALTER TABLE `orders_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
@@ -551,7 +615,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
