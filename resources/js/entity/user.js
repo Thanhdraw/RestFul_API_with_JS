@@ -1,15 +1,9 @@
 import axios from "axios";
 import { getUser } from "../api";
+import { renderUser } from "../ui";
 
-// js/entity/user.js
-
-const users = async () => {
-    try {
-        let users = await getUser();
-        return users.data;
-    } catch (error) {
-        console.error(error);
-    }
-};
-users();
-// js/entity/user.js
+document.addEventListener("DOMContentLoaded", function (e) {
+    window.viewUser = async function () {
+        console.log("ban dang click");
+    };
+});

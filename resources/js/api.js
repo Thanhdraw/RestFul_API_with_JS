@@ -37,6 +37,20 @@ export async function getUser() {
     }
 }
 
+// get details users
+
+export async function getDetail(id) {
+    try {
+        let response = await axios.get(`${API_BASE_CONTACT}/users/${id}`);
+        console.log("API Response:", response); // Xem toàn bộ response
+        console.log("User Data:", response.data); // Xem dữ liệu chi tiết
+        return response.data;
+    } catch (error) {
+        console.error("Lỗi khi gọi API:", error);
+        return null;
+    }
+}
+
 export async function fetchProducts(page = 1) {
     try {
         const token = localStorage.getItem("token");

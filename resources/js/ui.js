@@ -5,6 +5,7 @@ import {
     deleteProduct,
     getProductDetail,
     getUser,
+    getDetail,
     updateProduct,
     searchProducts,
 } from "./api.js";
@@ -245,21 +246,22 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     };
 });
-export async function renderUser() {
-    document.addEventListener("DOMContentLoaded", async () => {
-        const userList = document.getElementById("userList");
+// USER ACTION
 
-        const data = await getUser();
-        console.log("Data received:", data);
+document.addEventListener("DOMContentLoaded", async () => {
+    const userList = document.getElementById("userList");
 
-        if (!data || !data.users || !Array.isArray(data.users)) {
-            userList.innerHTML = `<p class="text-red-500">Không có dữ liệu người dùng.</p>`;
-            return;
-        }
+    const data = await getUser();
+    console.log("Data received:", data);
 
-        userList.innerHTML = data.users
-            .map(
-                (user) => `
+    if (!data || !data.users || !Array.isArray(data.users)) {
+        userList.innerHTML = `<p class="text-red-500">Không có dữ liệu người dùng.</p>`;
+        return;
+    }
+
+    userList.innerHTML = data.users
+        .map(
+            (user) => `
             <div class="p-4 border rounded-lg bg-gray-50 shadow-sm">
                 <p class="text-lg font-semibold">${user.name}</p>
                 <p class="text-gray-600">Email: ${user.email}</p>
@@ -271,8 +273,51 @@ export async function renderUser() {
                 </div>
             </div>
         `
-            )
-            .join("");
-    });
+        )
+        .join("");
+});
+
+{
+    /* <h2 id="user_name" class="text-2xl font-bold text-gray-900"></h2>
+<h3 id="id_user" class="text-2xl font-bold text-gray-900"></h3>
+<img id="user_image" src="" alt="Hình ảnh sản phẩm"
+    class="object-cover w-auto h-56 mx-auto my-4 rounded-lg shadow-sm">
+<p id="user_price" class="text-lg font-semibold text-gray-700"></p>
+<p id="user_description" class="text-gray-600"></p> */
 }
-renderUser();
+
+window.viewUser = async function (id) {
+    let userModal = document.getElementById("userModal");
+
+    // Gọi API lấy chi tiết user
+    let response = await getDetail(id);
+    console.log("User details:", response); // Debug dữ liệu
+
+    if (!response || !response.user) {
+        alert("Không tìm thấy user!");
+        return;
+    }
+
+    let user = response.user; // Lấy user từ API
+
+    // Cập nhật modal với dữ liệu user
+    document.getElementById("user_name").textContent =
+        user.name || "Không có tên";
+    document.getElementById("id_user").textContent = `ID: ${user.id || "N/A"}`;
+    document.getElementById("user_image").src =
+        user.avatar || "https://via.placeholder.com/150";
+    document.getElementById("user_price").textContent = `Email: ${
+        user.email || "Không có email"
+    }`;
+    document.getElementById("user_description").textContent = `Role ID: ${
+        user.role_id || "Không có Role ID"
+    }`;
+
+    // Hiển thị modal
+    userModal.classList.remove("hidden");
+};
+
+// Hàm đóng modal
+window.closeModal = function () {
+    document.getElementById("userModal").classList.add("hidden");
+};
