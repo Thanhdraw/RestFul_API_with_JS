@@ -53,7 +53,9 @@
         <!-- Modal Chỉnh Sửa -->
         <div id="editModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
             <div class="p-6 bg-white rounded-lg shadow-lg">
+
                 <h2 class="mb-4 text-xl font-semibold">Chỉnh sửa sản phẩm</h2>
+
                 <input type="hidden" id="edit_id">
                 <div class="mb-2">
                     <label class="block">Tên sản phẩm</label>

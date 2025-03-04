@@ -33,6 +33,50 @@
                 </button>
             </div>
         </div>
+
+
+        <!-- eidit chinh sua -->
+        <!-- Edit User Modal -->
+        <div id="editUserModal"
+            class="fixed inset-0 flex items-center justify-center hidden transition-opacity bg-black bg-opacity-50">
+            <div class="relative p-6 transition-all transform scale-95 bg-white rounded-lg shadow-xl w-96">
+                <button onclick="closeEditModal()"
+                    class="absolute text-gray-600 top-2 right-2 hover:text-red-500">✖</button>
+
+                <h2 class="text-2xl font-bold text-gray-900">Chỉnh sửa người dùng</h2>
+
+                <form id="editUserForm" class="mt-4">
+                    <input type="hidden" id="edit_user_id">
+
+                    <div class="mb-4">
+                        <label class="block font-semibold">Tên:</label>
+                        <input type="text" id="edit_user_name" class="w-full p-2 border rounded-lg">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-semibold">Email:</label>
+                        <input type="email" id="edit_user_email" class="w-full p-2 border rounded-lg">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-semibold">Role ID:</label>
+                        <input type="number" id="edit_user_role" class="w-full p-2 border rounded-lg">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-semibold">Ảnh đại diện:</label>
+                        <input type="file" id="edit_user_avatar" accept="image/*" class="w-full p-2 border rounded-lg"
+                            onchange="previewImage(event)">
+                        <img id="avatar_preview" src="" class="w-24 h-24 mt-2 border rounded-full" alt="Avatar Preview">
+                    </div>
+
+                    <button type="button" onclick="updateUser()"
+                        class="px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+
+
     </body>
 
 @endsection

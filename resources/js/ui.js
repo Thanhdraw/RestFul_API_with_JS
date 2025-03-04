@@ -1,5 +1,6 @@
 // import { data } from "alpinejs";
 import axios from "axios";
+import { loadProducts } from "./app.js";
 import {
     fetchProducts,
     deleteProduct,
@@ -8,8 +9,9 @@ import {
     getDetail,
     updateProduct,
     searchProducts,
+    handleUpdateUser,
 } from "./api.js";
-import { loadProducts } from "./app.js";
+
 export function renderProducts(products) {
     let productList = document.getElementById("product-list");
     productList.innerHTML = "";
@@ -103,9 +105,14 @@ window.closeModal = () => {
     const modal = document.getElementById("productModal");
     modal.classList.add("hidden");
 };
-
+window.closeModal = () => {
+    const modal = document.getElementById("editModal");
+    modal.classList.add("hidden");
+};
 // Mở modal chỉnh sửa
 window.openEditModal = (product) => {
+    // console.log("ban dang mo edit modal");
+
     if (!product) {
         console.error("Product data is missing!");
         return;
@@ -123,13 +130,21 @@ window.openEditModal = (product) => {
     document.getElementById("editModal").classList.remove("hidden");
     document.getElementById("editModal").classList.add("flex");
 };
-// Đóng modal chỉnh sửa
+// close modal
 document.addEventListener("DOMContentLoaded", function () {
     window.closeEditModal = () => {
-        console.log("ban da dong chinh sua");
+        console.log("Bạn đã đóng chỉnh sửa");
 
-        const modal = document.getElementById("editModal");
-        if (modal) modal.classList.add("hidden");
+        const modal =
+            document.getElementById("editUserModal") ||
+            document.getElementById("editModal");
+
+        if (!modal) {
+            console.error("Lỗi: Không tìm thấy phần tử modal");
+            return;
+        }
+
+        modal.classList.add("hidden");
     };
 });
 
@@ -208,6 +223,21 @@ window.createProductHandler = () => {
     createProductUI(data);
 };
 
+window.closeEditModal = () => {
+    console.log("ban da dong chinh sua");
+
+    const modal = document.getElementById("editModal");
+    if (modal) modal.classList.add("hidden");
+};
+
+// editUserModal
+window.closeEditModal = () => {
+    console.log("ban da dong chinh sua");
+
+    const modal = document.getElementById("editUserModal");
+    if (modal) modal.classList.add("hidden");
+};
+
 // Đóng modal create
 window.closeEditModal = () => {
     const modal = document.getElementById("createModal");
@@ -277,15 +307,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         .join("");
 });
 
-{
-    /* <h2 id="user_name" class="text-2xl font-bold text-gray-900"></h2>
-<h3 id="id_user" class="text-2xl font-bold text-gray-900"></h3>
-<img id="user_image" src="" alt="Hình ảnh sản phẩm"
-    class="object-cover w-auto h-56 mx-auto my-4 rounded-lg shadow-sm">
-<p id="user_price" class="text-lg font-semibold text-gray-700"></p>
-<p id="user_description" class="text-gray-600"></p> */
-}
-
 window.viewUser = async function (id) {
     let userModal = document.getElementById("userModal");
 
@@ -320,4 +341,79 @@ window.viewUser = async function (id) {
 // Hàm đóng modal
 window.closeModal = function () {
     document.getElementById("userModal").classList.add("hidden");
+};
+
+// update user
+// Hiển thị form chỉnh sửa
+window.editUser = async function (id) {
+    let response = await getDetail(id);
+    console.log("User details for edit:", response);
+
+    if (!response || !response.user) {
+        alert("Không tìm thấy user!");
+        return;
+    }
+
+    let user = response.user;
+
+    document.getElementById("edit_user_id").value = user.id;
+    document.getElementById("edit_user_name").value = user.name;
+    document.getElementById("edit_user_email").value = user.email;
+    document.getElementById("edit_user_role").value = user.role_id;
+
+    document.getElementById("editUserModal").classList.remove("hidden");
+};
+
+// Hàm đóng modal chỉnh sửa của user
+// document.addEventListener("DOMContentLoaded", function () {
+//     window.closeEditModal = () => {
+//         console.log("ban da dong chinh sua");
+
+//         const modal = document.getElementById("editUserModal");
+//         if (modal) modal.classList.add("hidden");
+//     };
+// });
+
+// Xem trước ảnh trước khi tải lên
+window.previewImage = function (event) {
+    let avatarPreview = document.getElementById("avatar_preview");
+    let file = event.target.files[0];
+
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            avatarPreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+// ui.js
+
+window.updateUser = async function () {
+    let formData = new FormData();
+    let userId = document.getElementById("edit_user_id").value;
+    let username = document.getElementById("edit_user_name").value;
+    let email = document.getElementById("edit_user_email").value;
+
+    formData.append("name", username); // Đổi "username" thành "name"
+    formData.append("email", email);
+
+    let avatarInput = document.getElementById("edit_user_avatar");
+    if (avatarInput.files.length > 0) {
+        formData.append("avatar", avatarInput.files[0]);
+    }
+
+    // ✅ Kiểm tra dữ liệu trước khi gửi
+    for (let [key, value] of formData.entries()) {
+        console.log(`${key}:`, value);
+    }
+
+    // Gọi API cập nhật user
+    let response = await handleUpdateUser(userId, formData);
+    if (response) {
+        alert("Cập nhật thành công!");
+    } else {
+        console.log("Cập nhật thất bại!");
+    }
 };

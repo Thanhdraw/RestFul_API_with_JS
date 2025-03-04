@@ -51,6 +51,29 @@ export async function getDetail(id) {
     }
 }
 
+// api.js
+export async function handleUpdateUser(id, formData) {
+    try {
+        const response = await axios.post(
+            `${API_BASE_CONTACT}/users/${id}`,
+            formData,
+            {
+                headers: { Accept: "application/json" },
+            }
+        );
+
+        return response.data;
+    } catch (error) {
+        console.error("Lỗi khi cập nhật user:", error);
+
+        if (error.response) {
+            console.error("Server response:", error.response.data);
+        }
+
+        return null;
+    }
+}
+
 export async function fetchProducts(page = 1) {
     try {
         const token = localStorage.getItem("token");

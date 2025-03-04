@@ -41,18 +41,19 @@ window.detailProduct = async function (id) {
     }
 };
 
-window.openEditModal = async function (id) {
-    let product = await getProductDetail(id);
-    if (product) {
-        document.getElementById("product_name").innerText = product.name;
-        document.getElementById(
-            "product_price"
-        ).innerText = `Giá: ${product.price} VNĐ`;
-        document.getElementById("product_description").innerText =
-            product.description;
-        document.getElementById("productModal").classList.remove("hidden");
-    }
-};
+// window.openEditModal = async function (id) {
+//     let product = await getProductDetail(id);
+
+//     if (product) {
+//         document.getElementById("product_name").innerText = product.name;
+//         document.getElementById(
+//             "product_price"
+//         ).innerText = `Giá: ${product.price} VNĐ`;
+//         document.getElementById("product_description").innerText =
+//             product.description;
+//         document.getElementById("productModal").classList.remove("hidden");
+//     }
+// };
 
 // create product
 window.createProductUI = async function (data) {
