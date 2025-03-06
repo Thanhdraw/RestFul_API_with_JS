@@ -1,0 +1,71 @@
+<?php
+
+namespace App\Swagger;
+
+/**
+ * @OA\Schema(
+ *     schema="Product",
+ *     required={"name", "price", "slug", "category_id"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         format="int64",
+ *         example=1,
+ *         description="Product ID"
+ *     ),
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         example="iPhone 15",
+ *         description="Product name"
+ *     ),
+ *     @OA\Property(
+ *         property="price",
+ *         type="number",
+ *         format="float",
+ *         example=999.99,
+ *         description="Product price"
+ *     ),
+ *     @OA\Property(
+ *         property="image",
+ *         type="string",
+ *         example="iphone15.jpg",
+ *         description="Product image URL"
+ *     ),
+ *     @OA\Property(
+ *         property="category_id",
+ *         type="integer",
+ *         example=1,
+ *         description="Category ID"
+ *     ),
+ *     @OA\Property(
+ *         property="slug",
+ *         type="string",
+ *         example="iphone-15",
+ *         description="Product slug for SEO-friendly URLs"
+ *     ),
+ *     @OA\Property(
+ *         property="description",
+ *         type="string",
+ *         example="The latest iPhone with advanced features",
+ *         description="Product description"
+ *     ),
+ *     @OA\Property(
+ *         property="created_at",
+ *         type="string",
+ *         format="date-time",
+ *         example="2023-01-01T00:00:00.000000Z",
+ *         description="Creation timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="updated_at",
+ *         type="string",
+ *         format="date-time",
+ *         example="2023-01-01T00:00:00.000000Z",
+ *         description="Last update timestamp"
+ *     )
+ * )
+ */
+class Models
+{
+}

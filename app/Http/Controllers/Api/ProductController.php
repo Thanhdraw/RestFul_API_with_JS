@@ -39,9 +39,6 @@ class ProductController extends Controller
 
 
 
-
-
-
     public function index()
     {
         return response()->json(Product::paginate(10)); // Trả về JSON chuẩn
