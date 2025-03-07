@@ -166,7 +166,7 @@ class ProductSwagger extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/products/{id}",
+     *     path="/products/{id}",
      *     summary="Get a specific product by ID",
      *     tags={"Products"},
      *     @OA\Parameter(
@@ -202,7 +202,7 @@ class ProductSwagger extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/products/{id}",
+     *     path="/products/{id}",
      *     summary="Update an existing product",
      *     tags={"Products"},
      *     @OA\Parameter(
@@ -286,7 +286,7 @@ class ProductSwagger extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/products/{id}",
+     *     path="/products/{id}",
      *     summary="Delete a product",
      *     tags={"Products"},
      *     @OA\Parameter(

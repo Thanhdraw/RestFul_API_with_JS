@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Swagger;
+use OpenApi\Annotations as OA;
 
 /**
  * @OA\Info(
@@ -8,7 +9,7 @@ namespace App\Swagger;
  *     version="1.0.0",
  *     description="RESTful API documentation for Ecommerce project",
  *     @OA\Contact(
- *         email="your.email@example.com",
+ *         email="dangquocthanh2812@gmail.com",
  *         name="Developer"
  *     ),
  *     @OA\License(
@@ -39,6 +40,9 @@ namespace App\Swagger;
  *     bearerFormat="JWT"
  * )
  */
+
+
+
 class OpenApiConfig
 {
 }
