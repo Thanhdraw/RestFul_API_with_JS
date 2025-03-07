@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Api\CatergoryController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +27,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/users/{id}', [UserController::class, 'getDetail']);
     Route::post('/users/{id}', [UserController::class, 'updateUser']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/categories', [CatergoryController::class, 'index']);
+    Route::get('/categories/search', [CatergoryController::class, 'search']);
+    Route::post('/categories', [CatergoryController::class, 'store']);
+    Route::get('/categories/{id}', [CatergoryController::class, 'show']);
+    Route::put('/categories/{id}', [CatergoryController::class, 'update']);
+    Route::delete('/categories/{id}', [CatergoryController::class, 'destroy']);
 });
 
 

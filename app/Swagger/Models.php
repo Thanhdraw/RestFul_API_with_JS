@@ -78,6 +78,17 @@ namespace App\Swagger;
  *     @OA\Property(property="created_at", type="string", format="date-time"),
  *     @OA\Property(property="updated_at", type="string", format="date-time")
  * )
+ *  @OA\Schema(
+ *     schema="Category",
+ *     type="object",
+ *     title="Category",
+ *     description="Category model",
+ *     @OA\Property(property="id", type="integer", example=1, description="ID of the category"),
+ *     @OA\Property(property="name", type="string", example="Electronics", description="Category name"),
+ *     @OA\Property(property="slug", type="string", example="All kinds of electronic items", description="Category description"),
+ *     @OA\Property(property="created_at", type="string", format="date-time", example="2024-03-07T12:00:00Z", description="Creation timestamp"),
+ *     @OA\Property(property="updated_at", type="string", format="date-time", example="2024-03-07T12:00:00Z", description="Last update timestamp")
+ * )
  */
 
 class Models
