@@ -37,6 +37,10 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 -   Thông tin tài khoản - CRUD
     !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/info.png)
 
+## Tài liệu API xuất ra PDF Swagger
+
+-   !["Xem tài liệu API (PDF)"](./L5_Swagger_PDF.pdf)
+
 ## BE:
 
 -   Đăng kí, đăng nhập - Auth
@@ -61,6 +65,3 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 
 -   In hoá đơn
 -   !["In hoá đơn"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/pdf_invoice.png)
-
--   Tài liệu API xuất ra PDF Swagger
--   !["Xem tài liệu API (PDF)"](./L5_Swagger_PDF.pdf)
