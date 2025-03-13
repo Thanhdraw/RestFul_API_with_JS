@@ -37,9 +37,9 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 -   Thông tin tài khoản - CRUD
     !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/info.png)
 
-## Tài liệu API xuất ra PDF Swagger
+## API Documentation:
 
--   !["Xem tài liệu API (PDF)"](./L5_Swagger_PDF.pdf)
+-   !["Xem tài liệu API(PDF)"](./L5_Swagger_PDF.pdf)
 
 ## BE:
 
