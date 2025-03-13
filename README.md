@@ -74,7 +74,9 @@ A basic e-commerce website with shopping cart management, user authorization (ad
 -   User Management
     !["User Management"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/users.png)
 -   Update User
+
     !["Update User"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/update.png)
+
 -   Order Management
     !["Order Management"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/invoice.png)
 -   Order Details
