@@ -11,6 +11,7 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 -   [laravel-breeze](https://github.com/laravel/breeze)
 -   [laravel-dompdf](https://github.com/barryvdh/laravel-dompdf)
 -   [darryldecode/cart](https://github.com/darryldecode/cart)
+-   [L5-Swagger](https://github.com/DarkaOnLine/L5-Swagger) (API Documentation)
 
 ## Features
 
@@ -23,6 +24,7 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 -   Quản lý danh mục sản phẩm
 -   Phân quyền người dùng
 -   Xây dựng trang admin
+-   Làm API Documentation Swagger
 
 ## FE:
 
@@ -59,3 +61,6 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 
 -   In hoá đơn
 -   !["In hoá đơn"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/admin/pdf_invoice.png)
+
+-   Tài liệu API xuất ra PDF Swagger
+-   !["Xem tài liệu API (PDF)"](./L5_Swagger_PDF.pdf)
