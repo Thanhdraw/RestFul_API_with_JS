@@ -26,6 +26,16 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
 -   Xây dựng trang admin
 -   Làm API Documentation Swagger
 
+## 📚 API Documentation
+
+<div align="center">
+  <a href="./L5_Swagger_PDF.pdf">
+    <img src="https://img.shields.io/badge/Swagger-View%20API%20Docs-green?style=for-the-badge&logo=swagger" alt="Swagger Documentation" />
+  </a>
+</div>
+
+> Comprehensive API documentation created with Swagger, detailing all endpoints, request/response formats, and authentication requirements.
+
 ## FE:
 
 -   Giao diện website
@@ -36,16 +46,6 @@ Xây dựng một website bán hàng cơ bản có chức năng quản lý giỏ
     !["Giỏ hàng"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/cart.png)
 -   Thông tin tài khoản - CRUD
     !["Thông tin tài khoản"](https://github.com/Thanhdraw/ecommerce/blob/main/public/images/shopstore/info.png)
-
-## 📚 API Documentation
-
-<div align="center">
-  <a href="./L5_Swagger_PDF.pdf">
-    <img src="https://img.shields.io/badge/Swagger-View%20API%20Docs-green?style=for-the-badge&logo=swagger" alt="Swagger Documentation" />
-  </a>
-</div>
-
-> Comprehensive API documentation created with Swagger, detailing all endpoints, request/response formats, and authentication requirements.
 
 ## BE:
 
