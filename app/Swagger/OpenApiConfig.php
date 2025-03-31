@@ -4,13 +4,14 @@ namespace App\Swagger;
 use OpenApi\Annotations as OA;
 
 /**
- * @OA\Info(
+ *@OA\Info(
  *     title="Laravel Ecommerce API Documentation",
  *     version="1.0.0",
  *     description="RESTful API documentation for Ecommerce project",
  *     @OA\Contact(
  *         email="dangquocthanh2812@gmail.com",
- *         name="Developer"
+ *         name="Developer",
+ *         url="https://github.com/Thanhdraw"
  *     ),
  *     @OA\License(
  *         name="MIT License",
